@@ -1,0 +1,45 @@
+name: Autograding Tests
+on:
+    - push
+    - pull_request
+    - workflow_dispatch
+    - repository_dispatch
+permissions:
+    checks: write
+    actions: read
+    contents: read
+jobs:
+    run-validate:
+        runs-on: ubuntu-latest
+        if: github.actor != 'github-classroom[bot]'
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Validate files and code
+              uses: classroom-resources/autograding-io-grader@v1
+              with:
+                  test-name: Validate files and code
+                  id: validate-files
+                  command: "node classroom/test.mjs"
+                  expected-output: 0
+                  comparison-method: exact
+                  max-score: 100
+            - name: Test with Classroom
+              # https://github.com/classroom-resources/autograding-io-grader
+              uses: classroom-resources/autograding-io-grader@v1
+              with:
+                  test-name: Check for files
+                  id: check-files
+                  command: "cat .devcontainer/devcontainer.json"
+                  expected-output: 0
+                  comparison-method: exact
+                  timeout: 10
+                  max-score: 100
+            - name: Autograding Reporter
+              uses: classroom-resources/autograding-grading-reporter@v1
+              # https://github.com/classroom-resources/autograding-grading-reporter
+              env:
+                  CHECK-FILES_RESULTS: "${{ steps.check-files }}"
+                  VALIDATE-FILES_RESULTS: "${{ steps.validate-files}}"
+              with:
+                  runners: check-files, validate-files
