@@ -1,0 +1,139 @@
+.container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+}
+
+.title {
+    text-align: center;
+    color: #222;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.inputGroup {
+    margin-bottom: 1.25rem;
+}
+
+.inputGroup label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #444;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #cfd8dc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #f9fafb;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    border-color: #0057B8;
+    outline: none;
+    background: #fff;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 1.5rem 0;
+    color: #888;
+    font-size: 0.95rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.divider::before {
+    margin-right: 0.75rem;
+}
+
+.divider::after {
+    margin-left: 0.75rem;
+}
+
+.loginButton {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #0057B8;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,87,184,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.loginButton:hover,
+.loginButton:focus {
+    background: #003e8a;
+    box-shadow: 0 4px 16px rgba(0,87,184,0.12);
+}
+
+.googleButton {
+    width: 100%;
+    padding: 0.8rem;
+    background: #fff;
+    color: #222;
+    border: 1px solid #cfd8dc;
+    border-radius: 5px;
+    font-size: 1.08rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.googleButton:hover,
+.googleButton:focus {
+    background: #f5f7fa;
+    border-color: #b0bec5;
+}
+
+.googleIcon {
+    object-fit: contain;
+    width: 22px;
+    height: 22px;
+}
+
+.registerText {
+    text-align: center;
+    margin-top: 2rem;
+    color: #666;
+    font-size: 1rem;
+}
+
+.registerLink {
+    color: #0057B8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.registerLink:hover,
+.registerLink:focus {
+    text-decoration: underline;
+    color: #003e8a;
+}
