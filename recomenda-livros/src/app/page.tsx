@@ -5,44 +5,38 @@ import styles from "./Login.module.css";
 export default function LoginPage() {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Bem-vindo(a)</h1>
+      <h1 className={styles.title}>Seja Bem-vindo(a)</h1>
       
-      <form className={styles.form}>
-        <div className={styles.inputGroup}>
-          <label htmlFor="email" className={styles.label}>E-mail</label>
-          <input 
-            type="email" 
-            id="email" 
-            placeholder="exemplo@email.com" 
-            className={styles.input}
-            autoComplete="email"
-            required
-          />
-        </div>
+      <div className={styles.inputGroup}>
+        <label htmlFor="email">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          placeholder="exemple@gmail.com" 
+          className={styles.input}
+        />
+      </div>
 
-        <div className={styles.inputGroup}>
-          <label htmlFor="password" className={styles.label}>Senha</label>
-          <input 
-            type="password" 
-            id="password" 
-            placeholder="********" 
-            className={styles.input}
-            autoComplete="current-password"
-            required
-          />
-        </div>
+      <div className={styles.divider}></div>
 
-        <button type="submit" className={styles.loginButton}>
-          Entrar
-        </button>
-      </form>
+      <div className={styles.inputGroup}>
+        <label htmlFor="password">Senha:</label>
+        <input 
+          type="password" 
+          id="password" 
+          placeholder="********" 
+          className={styles.input}
+        />
+      </div>
 
-      <div className={styles.divider}>ou</div>
+      <button className={styles.loginButton}>Login</button>
 
-      <button className={styles.googleButton} type="button">
+      <div className={styles.divider}>OU</div>
+
+      <button className={styles.googleButton}>
         <Image 
           src="/logogoogle.png" 
-          alt="Google" 
+          alt="Google Logo" 
           width={24} 
           height={24} 
           className={styles.googleIcon}
@@ -51,10 +45,7 @@ export default function LoginPage() {
       </button>
 
       <div className={styles.registerText}>
-        Não possui uma conta?{" "}
-        <Link href="/register" className={styles.registerLink}>
-          Cadastre-se
-        </Link>
+        Ainda não é registrado? <Link href="/register" className={styles.registerLink}>Registre-se</Link>
       </div>
     </div>
   );
