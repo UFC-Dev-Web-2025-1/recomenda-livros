@@ -1,0 +1,40 @@
+{
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": true
+    },
+    "ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+      "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/gvatsal60/dev-container-features/sonarlint:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+        "mhutchie.git-graph",
+        "eamodio.gitlens",
+        "github.vscode-github-actions",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+        "esbenp.prettier-vscode",
+        "sonarsource.sonarlint-vscode"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "cSpell.language": "en,pt,pt_BR",
+        "cSpell.ignoreWords": [
+          "brazilian",
+          "devcontainers"
+        ],
+        "editor.formatOnSave": true,
+		"editor.wordWrap": "on",
+    "editor.defaultFormatter": null,
+        "prettier.tabWidth": 4
+      }
+    }
+  }
+}

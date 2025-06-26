@@ -1,0 +1,89 @@
+.container {
+  max-width: 480px;
+  margin: 3rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.inputGroup label {
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.inputGroup input,
+.passwordWrapper input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #90a4ae;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.passwordWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.passwordWrapper input {
+    padding-right: 2.5rem;
+}
+
+.toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.checkboxGroup a {
+  color: #0057B8;
+  text-decoration: underline;
+}
+
+.createButton {
+  background: #0057B8;
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background 0.2s ease;
+}
+
+.createButton:hover {
+  background: #003e8a;
+}
