@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import Image from "next/image";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +20,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <header className="navbar">
           <div className="navbar-content full-width">
+            <h1 className="navbar-title">Recomenda Livros</h1>
+            <span className="navbar-divider" />
             <Image
               src="/Education.png"
               alt="Logo Recomenda Livros"
@@ -28,8 +30,6 @@ export default function RootLayout({
               className="navbar-logo"
               priority
             />
-            <span className="navbar-divider" />
-            <h1 className="navbar-title">Recomenda Livros</h1>
           </div>
         </header>
         <main className="main-content">{children}</main>
