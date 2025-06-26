@@ -17,7 +17,7 @@ export default function LoginPage() {
         />
       </div>
 
-      <div className={styles.divider}></div>
+    
 
       <div className={styles.inputGroup}>
         <label htmlFor="password">Senha:</label>
