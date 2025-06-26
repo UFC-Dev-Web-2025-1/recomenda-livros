@@ -1,0 +1,40 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f7fa;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input, button {
+  font-family: inherit;
+}
+
+.main-content {
+  padding: 2rem;
+}
+
+.navbar {
+  background-color: #003e8a;
+  padding: 1rem 2rem;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-title {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.navbar-logo {
+  vertical-align: middle;
+}
