@@ -31,21 +31,23 @@
   display: block;
 }
 
-.inputGroup input {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #90a4ae;
-  border-radius: 6px;
-  font-size: 1rem;
+.inputGroup input,
+.passwordWrapper input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #90a4ae;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
 .passwordWrapper {
-  position: relative;
+    position: relative;
+    width: 100%;
 }
 
 .passwordWrapper input {
-  width: 100%;
-  padding-right: 2.5rem;
+    padding-right: 2.5rem;
 }
 
 .toggle {
