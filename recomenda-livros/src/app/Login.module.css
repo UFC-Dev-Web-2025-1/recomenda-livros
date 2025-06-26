@@ -137,3 +137,22 @@
     text-decoration: underline;
     color: #003e8a;
 }
+
+/* ← AQUI: estilo do "Esqueceu a senha?" */
+.forgotPassword {
+    text-align: right;
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+}
+
+.forgotPassword a {
+    color: #0057B8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgotPassword a:hover,
+.forgotPassword a:focus {
+    text-decoration: underline;
+    color: #003e8a;
+}

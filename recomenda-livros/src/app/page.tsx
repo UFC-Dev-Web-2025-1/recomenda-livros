@@ -27,6 +27,9 @@ export default function LoginPage() {
           placeholder="********" 
           className={styles.input}
         />
+        <div className={styles.forgotPassword}>
+          <Link href="/forgot-password">Esqueceu a senha?</Link>
+        </div>
       </div>
 
       <button className={styles.loginButton}>Login</button>
@@ -45,7 +48,10 @@ export default function LoginPage() {
       </button>
 
       <div className={styles.registerText}>
-        Ainda não é registrado? <Link href="/register" className={styles.registerLink}>Registre-se</Link>
+        Ainda não é registrado?{" "}
+        <Link href="/register" className={styles.registerLink}>
+          Registre-se
+        </Link>
       </div>
     </div>
   );
