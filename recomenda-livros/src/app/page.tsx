@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Login.module.css";
 
+
 export default function LoginPage() {
   return (
     <div className={styles.container}>
