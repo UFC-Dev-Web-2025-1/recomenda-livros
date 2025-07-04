@@ -5,7 +5,7 @@
   min-height: 100vh;
   background-color: #fff;
   font-family: 'Segoe UI', sans-serif;
-  position: relative;
+  position: relative; /* Added for absolute positioning of footer */
 }
 
 .header {
@@ -114,12 +114,13 @@
   padding: 1rem 2rem;
   font-size: 0.95rem;
   border-top: 1px solid #eee;
-  background-color: #f0f2f5;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  background-color: #f5f5f5;
 }
 
 .forumBadge {
