@@ -5,6 +5,7 @@
   min-height: 100vh;
   background-color: #fff;
   font-family: 'Segoe UI', sans-serif;
+  position: relative;
 }
 
 .header {
@@ -73,7 +74,7 @@
   padding: 0.75rem;
   border-radius: 6px;
   font-size: 1rem;
-  width: 100%; /* Ensure full width for input fields */
+  width: 100%;
 }
 
 .row {
@@ -111,13 +112,14 @@
 
 .footer {
   padding: 1rem 2rem;
-  text-align: center;
   font-size: 0.95rem;
   border-top: 1px solid #eee;
+  background-color: #f0f2f5;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 0.5rem;
-  background-color: #f5f5f5;
+  width: 100%;
 }
 
 .forumBadge {
@@ -130,4 +132,5 @@
 
 .separator {
   color: #888;
+  margin: 0 0.5rem;
 }
