@@ -74,11 +74,16 @@ export default function SelecionarLivroPage() {
         </form>
       </main>
 
-      <footer className={styles.footer}>
-        <span className={styles.forumBadge}>32</span> Fóruns
-        <span className={styles.separator}>|</span>
-        Recomendações
-      </footer>
+ <footer className={styles.footer}>
+  <div className={styles.footerItem}>
+    <span className={styles.forumBadge}>32</span>
+    Fóruns
+  </div>
+  <div className={styles.footerItem}>
+    Recomendações
+  </div>
+</footer>
+
     </div>
   );
 }
