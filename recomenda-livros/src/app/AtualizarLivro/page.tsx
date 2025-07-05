@@ -12,7 +12,7 @@ export default function AtualizarLivroPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aqui vai a lógica de atualização (API, DB, etc)
+   
     console.log({
       nomeLivro,
       nomeAutor,
@@ -85,15 +85,16 @@ export default function AtualizarLivroPage() {
         </form>
       </main>
 
-      <footer className={styles.footer}>
-        <div className={styles.footerItem}>
-          <span className={styles.forumBadge}>32</span>
-          Fóruns
-        </div>
-        <div className={styles.footerItem}>
-          Recomendações
-        </div>
-      </footer>
+    <footer className={styles.footer}>
+  <div className={styles.footerItem}>
+    <span className={styles.forumBadge}>32</span>
+    Fóruns
+  </div>
+  <div className={styles.footerItem}>
+    Recomendações
+  </div>
+</footer>
+
     </div>
   );
 }

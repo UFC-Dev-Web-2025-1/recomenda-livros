@@ -132,23 +132,26 @@
 .footer {
   display: flex;
   justify-content: flex-end;
-  padding: 1rem;
-  font-size: 0.9rem;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #f7f9fc;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #154a80;
   gap: 2rem;
 }
 
-/* Item do rodapé */
 .footerItem {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-/* Badge do fórum */
 .forumBadge {
-  background-color: #0057b8;
-  color: #fff;
-  padding: 0.1rem 0.5rem;
+  background-color: #154a80;
+  color: white;
   border-radius: 999px;
-  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: bold;
 }
