@@ -1,0 +1,153 @@
+/* livro.module.css */
+
+/* Container geral da página */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Cabeçalho fixo no topo */
+.header {
+  background-color: #174e89;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+}
+
+/* Botão de voltar no cabeçalho */
+.backButton {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Avatar à direita do header */
+.avatar {
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  color: #174e89;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Área principal do conteúdo */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ícone do livro */
+.iconLivro {
+  width: 60px;
+  height: 60px;
+  background: url('/livro-icon.svg') no-repeat center;
+  background-size: contain;
+  margin-bottom: 1rem;
+}
+
+/* Texto principal abaixo do ícone */
+.selecioneTexto {
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+/* Formulário */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  gap: 1rem;
+}
+
+/* Campos de input e select */
+.input {
+  padding: 0.75rem;
+  border: 1px solid #174e89;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* Linha com 2 campos lado a lado */
+.row {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Campos metade da largura */
+.inputHalf {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #174e89;
+  border-radius: 4px;
+}
+
+/* Botões do formulário */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+/* Botão voltar dentro do form */
+.backButtonForm {
+  background-color: #0057B8;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* Botão principal do form */
+.selectButton {
+  background-color: #0057b8;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* Rodapé fixo na base */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  font-size: 0.9rem;
+  gap: 2rem;
+}
+
+/* Item do rodapé */
+.footerItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Badge do fórum */
+.forumBadge {
+  background-color: #0057b8;
+  color: #fff;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
