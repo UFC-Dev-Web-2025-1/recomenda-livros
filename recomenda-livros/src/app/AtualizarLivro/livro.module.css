@@ -52,14 +52,15 @@
   justify-content: center;
 }
 
-/* Ícone do livro */
 .iconLivro {
   width: 60px;
   height: 60px;
-  background: url('/livro-icon.svg') no-repeat center;
+  background-image: url('/livro.png');
   background-size: contain;
-  margin-bottom: 1rem;
+  background-repeat: no-repeat;
+  margin: 1.5rem auto 0.5rem auto;
 }
+
 
 /* Texto principal abaixo do ícone */
 .selecioneTexto {
