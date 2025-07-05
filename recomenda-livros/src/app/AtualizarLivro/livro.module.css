@@ -23,11 +23,21 @@
 
 /* Botão de voltar no cabeçalho */
 .backButton {
-  background: none;
+  background: transparent;
   border: none;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.backButton:hover,
+.backButton:focus {
+  background: rgba(255, 255, 255, 0.12);
+  color: #e0eaff;
+  outline: none;
 }
 
 /* Avatar à direita do header */
