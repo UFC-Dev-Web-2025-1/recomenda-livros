@@ -1,4 +1,4 @@
-"use client";  
+"use client";
 
 import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Box } from '@mui/material';
@@ -10,34 +10,32 @@ const UserAvatar = styled(Box)(({ theme }) => ({
   width: 40,
   height: 40,
   borderRadius: '50%',
-  backgroundColor: '#f5f5f5', 
+  backgroundColor: '#f5f5f5',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: theme.palette.primary.main, 
+  color: theme.palette.primary.main,
   fontSize: '1.2rem',
   fontWeight: 'bold',
-  marginLeft: theme.spacing(2), 
+  marginLeft: theme.spacing(2),
 }));
- type  HeaderProps = {
-        title  : string,
-        avatar : string
 
-    }
+type HeaderProps = {
+  title: string;
+  avatar: string;
+};
 
-export default function Header({title,avatar}:HeaderProps) {
+export default function Header({ title, avatar }: HeaderProps) {
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#00000', boxShadow: 'none' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#154273', boxShadow: 'none' }}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <IconButton edge="start" color="inherit" aria-label="back">
             <ArrowBackIosIcon />
           </IconButton>
-          <h3>
-            {title}
-          </h3>
+          <h3>{title}</h3>
         </Box>
-        <Box sx={{ flexGrow: 1, maxWidth: '500px' }}> 
+        <Box sx={{ flexGrow: 1, maxWidth: '500px' }}>
           <SearchBar />
         </Box>
         <UserAvatar>
