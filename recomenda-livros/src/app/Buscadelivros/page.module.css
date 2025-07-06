@@ -17,7 +17,7 @@
 }
 
 .filterButton {
-  background-color: #154273 !important;
+  background-color: #18508C !important;
   color: white !important;
   border-radius: 16px !important;
   padding: 6px 20px !important;
@@ -45,7 +45,7 @@
   background-color: #f7f9fc;
   font-size: 1rem;
   font-weight: 600;
-  color: #154a80;
+  color: #18508C;
   gap: 2rem;
   border-top: 1px solid #ccc;
 }
