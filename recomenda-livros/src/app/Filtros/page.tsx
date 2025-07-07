@@ -32,12 +32,12 @@ export default function Page() {
 
           <div>
             <p>Ano de publicação</p>
-            <label>De:</label>
-            <select>
+            <label htmlFor="anoDe">De:</label>
+            <select id="anoDe">
               <option value="">Selecione</option>
             </select>
-            <label>Até:</label>
-            <select>
+            <label htmlFor="anoAte">Até:</label>
+            <select id="anoAte">
               <option value="">Selecione</option>
             </select>
           </div>
