@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import styles from './Filtros.module.css';
-import Header from '../../components/Layout/Header';
 
 export default function Page() {
   const [showFiltros, setShowFiltros] = useState(false);
@@ -44,15 +43,20 @@ export default function Page() {
           </div>
 
           <div className={styles.filtrosRodape}>
-            <button>Limpar</button>
-            <button>Aplicar</button>
+            <button className={styles.btnLimpar}>Limpar</button>
+            <button className={styles.btnAplicar}>Aplicar</button>
           </div>
         </div>
       )}
 
-      <footer className={styles.rodape}>
-        <span>📘 Fóruns</span>
-        <span>Recomendações</span>
+      <footer className={styles.footer}>
+        <div className={styles.footerItem}>
+          <span className={styles.forumBadge}>32</span>
+          Fóruns
+        </div>
+        <div className={styles.footerItem}>
+          Recomendações
+        </div>
       </footer>
     </div>
   );

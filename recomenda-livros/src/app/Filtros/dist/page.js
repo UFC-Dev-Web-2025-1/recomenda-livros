@@ -23,10 +23,12 @@ function Page() {
                 react_1["default"].createElement("select", null,
                     react_1["default"].createElement("option", { value: "" }, "Selecione"))),
             react_1["default"].createElement("div", { className: Filtros_module_css_1["default"].filtrosRodape },
-                react_1["default"].createElement("button", null, "Limpar"),
-                react_1["default"].createElement("button", null, "Aplicar")))),
-        react_1["default"].createElement("footer", { className: Filtros_module_css_1["default"].rodape },
-            react_1["default"].createElement("span", null, "\uD83D\uDCD8 F\u00F3runs"),
-            react_1["default"].createElement("span", null, "Recomenda\u00E7\u00F5es"))));
+                react_1["default"].createElement("button", { className: Filtros_module_css_1["default"].btnLimpar }, "Limpar"),
+                react_1["default"].createElement("button", { className: Filtros_module_css_1["default"].btnAplicar }, "Aplicar")))),
+        react_1["default"].createElement("footer", { className: Filtros_module_css_1["default"].footer },
+            react_1["default"].createElement("div", { className: Filtros_module_css_1["default"].footerItem },
+                react_1["default"].createElement("span", { className: Filtros_module_css_1["default"].forumBadge }, "32"),
+                "F\u00F3runs"),
+            react_1["default"].createElement("div", { className: Filtros_module_css_1["default"].footerItem }, "Recomenda\u00E7\u00F5es"))));
 }
 exports["default"] = Page;
