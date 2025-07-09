@@ -12,5 +12,22 @@ a {
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Avatar do usuário */
+.userAvatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #154273;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    cursor: default;
+    box-shadow: 0 0 0 2px #ffffff;
 }
