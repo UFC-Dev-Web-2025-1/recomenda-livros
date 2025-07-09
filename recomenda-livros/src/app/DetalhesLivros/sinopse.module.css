@@ -1,0 +1,249 @@
+/* Container geral */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    background: #f8fafc;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Cabeçalho fixo */
+.header,
+.headerBar {
+    width: 100%;
+    background: linear-gradient(90deg, #154273 60%, #1e5a99 100%);
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(21, 66, 115, 0.12);
+    border-radius: 0 0 12px 12px;
+    margin-bottom: 3rem;
+    letter-spacing: 0.02em;
+    box-sizing: border-box;
+}
+
+.header {
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+.headerBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.headerTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Cartão de conteúdo */
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(21, 66, 115, 0.08);
+    padding: 2.5rem 3rem;
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.3s ease, transform 0.2s;
+    box-sizing: border-box;
+}
+
+.card:hover,
+.card:focus-within {
+    box-shadow: 0 8px 28px rgba(21, 66, 115, 0.15);
+    transform: translateY(-2px) scale(1.01);
+}
+
+/* Capa do livro */
+.bookCover {
+    margin: 1rem 0 2rem 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(21, 66, 115, 0.12);
+    max-width: 220px;
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 3/4;
+    background: #e8eef5;
+}
+
+/* Título */
+.title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0.5rem 0 0.25rem 0;
+    color: #1a2a3a;
+    text-align: center;
+    word-break: break-word;
+}
+
+/* Autor */
+.author {
+    font-size: 1.15rem;
+    color: #6b7a90;
+    margin: 0.2rem 0 1.5rem 0;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Nota e estrelas */
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.stars {
+    color: #f7c948;
+    letter-spacing: 0.1rem;
+    font-size: 1.4rem;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+    display: flex;
+    align-items: center;
+}
+
+.ratingValue {
+    font-size: 1.1rem;
+    color: #4c5c6e;
+    font-weight: 500;
+}
+
+/* Abas */
+.tabs {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.tab {
+    background: #f1f5f9;
+    border: 1.5px solid #cdd7e3;
+    padding: 0.65rem 1.5rem;
+    font-weight: 600;
+    color: #154273;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 4px rgba(21, 66, 115, 0.06);
+    outline: none;
+    position: relative;
+    min-width: 100px;
+    text-align: center;
+}
+
+.tab:hover,
+.tab:focus {
+    background: #e3effa;
+    border-color: #1e5a99;
+    color: #1e5a99;
+}
+
+.active,
+.tab[aria-selected="true"] {
+    background: #d7e7f7;
+    border-color: #154273;
+    color: #154273;
+    box-shadow: 0 2px 8px rgba(21, 66, 115, 0.1);
+    z-index: 1;
+}
+
+/* Sinopse */
+.synopsis {
+    max-width: 650px;
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #2a3a4d;
+    background: #ffffff;
+    padding: 1.75rem 2.25rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(21, 66, 115, 0.07);
+    margin-bottom: 2rem;
+    word-break: break-word;
+}
+
+/* Botão de compartilhar */
+.shareButton {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s, color 0.2s;
+    outline: none;
+}
+
+.shareButton:hover,
+.shareButton:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #e1ecf7;
+    color: #e1ecf7;
+}
+
+.shareIcon {
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .card {
+        padding: 2rem 1.5rem;
+        max-width: 98vw;
+    }
+    .synopsis {
+        padding: 1.25rem 1rem;
+        max-width: 98vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .header,
+    .headerBar {
+        padding: 1rem 0.5rem;
+        font-size: 1.2rem;
+    }
+    .headerTitle {
+        font-size: 1.2rem;
+    }
+    .card {
+        padding: 1rem 0.5rem;
+    }
+    .tabs {
+        gap: 0.5rem;
+    }
+    .tab {
+        padding: 0.5rem 0.75rem;
+        min-width: 80px;
+        font-size: 0.95rem;
+    }
+    .synopsis {
+        padding: 0.75rem 0.5rem;
+        font-size: 1rem;
+    }
+    .bookCover {
+        max-width: 140px;
+    }
+}
+
+/* Acessibilidade extra */
+.tab:focus-visible,
+.shareButton:focus-visible {
+    outline: 2px solid #1e5a99;
+    outline-offset: 2px;
+}
