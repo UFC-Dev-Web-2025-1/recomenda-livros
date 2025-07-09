@@ -12,6 +12,8 @@
   flex-direction: column;
 }
 
+
+
 .mainContent {
   flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
   padding: 20px;
@@ -19,7 +21,10 @@
   flex-direction: column;
   gap: 20px; /* Espaçamento entre os cards */
   align-items: center; /* Centraliza os cards */
+  overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
 }
+
+
 
 /* Ajustes para telas menores (Responsividade) */
 @media (max-width: 768px) {
