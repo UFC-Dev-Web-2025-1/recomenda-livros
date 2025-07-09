@@ -4,7 +4,7 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Box } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { styled } from '@mui/material/styles';
-import SearchBar from '../Forms/SearchBar';
+import SearchBar from '../../Forms/SearchBar';
 
 const UserAvatar = styled(Box)(({ theme }) => ({
   width: 40,
