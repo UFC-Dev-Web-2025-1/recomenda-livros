@@ -18,6 +18,7 @@ function BookDetails() {
         React.createElement("div", { className: sinopse_module_css_1["default"].rating },
             React.createElement("span", { className: sinopse_module_css_1["default"].stars }, "\u2605\u2605\u2605\u2605\u2605"),
             React.createElement("span", { className: sinopse_module_css_1["default"].ratingValue }, "4.7")),
+        React.createElement("button", { className: sinopse_module_css_1["default"].readButton }, "Quero Ler"),
         React.createElement("div", { className: sinopse_module_css_1["default"].tabs },
             React.createElement("button", { className: sinopse_module_css_1["default"].tab + " " + sinopse_module_css_1["default"].active }, "SINOPSE"),
             React.createElement("button", { className: sinopse_module_css_1["default"].tab }, "RESENHAS")),

@@ -36,6 +36,9 @@ export default function BookDetails() {
         <span className={styles.stars}>★★★★★</span>
         <span className={styles.ratingValue}>4.7</span>
       </div>
+      <button className={styles.readButton}>Quero Ler</button>
+
+
 
       <div className={styles.tabs}>
         <button className={`${styles.tab} ${styles.active}`}>SINOPSE</button>
