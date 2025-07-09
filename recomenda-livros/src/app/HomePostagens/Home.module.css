@@ -1,0 +1,85 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  padding-bottom: 6rem; /* Espaço pro footer não sobrepor */
+}
+
+.postCard {
+  display: flex;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.bookImage {
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+
+.postContent {
+  padding: 1rem;
+}
+
+.author {
+  font-style: italic;
+  color: #666;
+  margin: 0.25rem 0;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.signature {
+  text-align: right;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.body {
+  background: #f0f2f5;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #f7f9fc;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #154a80;
+  gap: 2rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.footerItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.forumBadge {
+  background-color: #154a80;
+  color: white;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
