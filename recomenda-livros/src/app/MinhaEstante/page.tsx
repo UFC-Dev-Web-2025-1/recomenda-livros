@@ -3,7 +3,7 @@
 import React from 'react';
 import styles from './estante.module.css';
 import Image from 'next/image';
-import BookCard from '@/src/components/BookCard/BookCard';
+import BookCard from '@/src/components/Cards/BookCard/BookCard';
 import Footer from '@/src/components/Layout/Footer/footer';
 
 export default function Page() {
