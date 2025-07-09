@@ -3,57 +3,38 @@
 import React from 'react';
 import styles from './estante.module.css';
 import Image from 'next/image';
+import BookCard from '@/src/components/BookCard/BookCard';
+import Footer from '@/src/components/Layout/Footer/footer';
 
 export default function Page() {
-  const livros = Array(6).fill({
-    titulo: 'A Hora é da Estrela',
-    autor: 'Clarice Lispector',
-    nota: 4.5,
-    progresso: '100%',
-  });
+  const myBook = {
+    id: '1',
+    title: 'A Hora é da Estrela',
+    author: 'Clarice Lispector',
+    coverSrc: '/clarice-book.png',
+    rating: 4.5,
+    completionPercentage: 100,
+  };
+
 
   return (
     <div className={styles.container}>
       <div className={styles.icones}>
-        <Image src="/livros.png" alt="Livros" width={50} height={50} />
+        <Image src="/livros.png" alt="Livros" width={90} height={90} />
       </div>
 
       <div className={styles.grid}>
-        {livros.map((livro, index) => (
-          <div key={index} className={styles.livroCard}>
-            <Image
-              src="/Clarice.png"
-              alt={livro.titulo}
-              width={80}
-              height={120}
-              className={styles.livroImage}
-            />
-            <div className={styles.livroInfo}>
-              <p className={styles.livroTitulo}>{livro.titulo}</p>
-              <p className={styles.livroAutor}>{livro.autor}</p>
-              <div className={styles.livroRating}>
-                {'⭐'.repeat(5)}
-                {livro.nota}
-              </div>
-              <div className={styles.livroAcoes}>
-                <button className={styles.btnLido}>Lido</button>
-                <button className={styles.btnEditar}>Editar</button>
-              </div>
-            </div>
-            <span className={styles.livroProgresso}>{livro.progresso}</span>
-          </div>
-        ))}
+        <BookCard book={myBook} />
+
+        <BookCard book={{ ...myBook, id: '2', title: 'Outro Livro', author: 'Outro Autor', rating: 3.0, completionPercentage: 50, coverSrc: '/another-book-cover.png' }} />
+        <BookCard book={myBook} />
+        <BookCard book={myBook} />
+        <BookCard book={myBook} />
+        <BookCard book={myBook} />
+
       </div>
 
-      <button className={styles.addBtn}>+</button>
-
-      <footer className={styles.footer}>
-        <div className={styles.footerItem}>
-          <span className={styles.forumBadge}>32</span>
-          Fóruns
-        </div>
-        <div className={styles.footerItem}>Recomendações</div>
-      </footer>
+      <Footer />
     </div>
   );
 }
