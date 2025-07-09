@@ -3,7 +3,7 @@
 "use strict";
 exports.__esModule = true;
 var react_1 = require("react");
-var Header_1 = require("../../components/Layout/Header");
+var Header_1 = require("../../components/Layout/Header/Header");
 var page_module_css_1 = require("./page.module.css");
 var material_1 = require("@mui/material");
 var Menu_1 = require("@mui/icons-material/Menu");
