@@ -2,7 +2,8 @@
 "use client";
 
 import React from 'react';
-import Header from '../../components/Layout/Header';
+import Header from '../../components/Layout/Header/Header'; 
+
 import styles from './page.module.css';
 import { Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
