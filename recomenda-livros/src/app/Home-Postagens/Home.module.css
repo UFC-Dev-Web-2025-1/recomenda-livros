@@ -1,0 +1,39 @@
+/* src/app/Home-Postagens/HomePostagens.module.css */
+
+.homeContainer {
+  display: flex;
+  min-height: 100vh; /* Garante que o container ocupe a altura total da viewport */
+  background-color: #f5f7fa; /* Cor de fundo conforme a imagem */
+}
+
+.contentWrapper {
+  flex-grow: 1; /* Ocupa o espaço restante após a sidebar */
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.mainContent {
+  flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaçamento entre os cards */
+  align-items: center; /* Centraliza os cards */
+  overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
+}
+
+
+
+/* Ajustes para telas menores (Responsividade) */
+@media (max-width: 768px) {
+  .homeContainer {
+    flex-direction: column; /* Empilha sidebar e conteúdo em telas menores */
+  }
+
+  .mainContent {
+    padding: 15px;
+    gap: 15px;
+  }
+}

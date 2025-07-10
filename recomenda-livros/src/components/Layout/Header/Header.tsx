@@ -1,46 +1,41 @@
+// src/components/Layout/Header/Header.tsx
 "use client";
 
 import React from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Box } from '@mui/material';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { styled } from '@mui/material/styles';
-import SearchBar from '../../Forms/SearchBar';
+import { AppBar, Toolbar, Typography, IconButton, Box, Avatar } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu'; // Importa o ícone de hambúrguer
+import SearchBar from '@/src/components/Forms/SearchBar'; // Reutilizando a SearchBar
 
-const UserAvatar = styled(Box)(({ theme }) => ({
-  width: 40,
-  height: 40,
-  borderRadius: '50%',
-  backgroundColor: '#f5f5f5',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: theme.palette.primary.main,
-  fontSize: '1.2rem',
-  fontWeight: 'bold',
-  marginLeft: theme.spacing(2),
-}));
-
-type HeaderProps = {
+interface HeaderProps {
   title: string;
   avatar: string;
-};
+  onMenuClick: () => void; // A função para lidar com o clique do menu
+}
 
-export default function Header({ title, avatar }: HeaderProps) {
+export default function Header({ title, avatar, onMenuClick }: HeaderProps) {
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#154273', boxShadow: 'none' }}>
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <IconButton edge="start" color="inherit" aria-label="back">
-            <ArrowBackIosIcon />
-          </IconButton>
-          <h3>{title}</h3>
-        </Box>
-        <Box sx={{ flexGrow: 1, maxWidth: '500px' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#1E63B4', boxShadow: 'none' }}>
+      <Toolbar sx={{ justifyContent: 'space-between', paddingLeft: { xs: 1, md: 2 } }}> {/* Ajusta padding */}
+        {/* Ícone de Menu Hambúrguer */}
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          onClick={onMenuClick} // Chama a função passada pelo pai
+          sx={{ mr: { xs: 1, md: 2 } }} // Espaçamento à direita
+        >
+          <MenuIcon />
+        </IconButton>
+
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
+          {title}
+        </Typography>
+
+        <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
           <SearchBar />
         </Box>
-        <UserAvatar>
-          <Typography variant="h6">{avatar}</Typography>
-        </UserAvatar>
+
+        <Avatar sx={{ bgcolor: 'orange', ml: { xs: 1, md: 2 } }}>{avatar}</Avatar>
       </Toolbar>
     </AppBar>
   );
