@@ -1,15 +1,14 @@
-// src/app/Home-Postagens/page.tsx
 "use client";
 
 import React, { useState } from 'react';
 import styles from './Home.module.css';
 import Header from '@/src/components/Layout/Header/Header';
-import { Box } from '@mui/material'; // Importar Box
+import { Box } from '@mui/material';
 import Sidebar from '@/src/components/Navigation/Slidebar';
 import BookPostCard from '@/src/components/Cards/PostagemCard/BookPostCard';
 
 export default function HomePostagensPage() {
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true); // Começa visível (desktop)
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true); 
 
   const handleMenuToggle = () => {
     setIsSidebarVisible(!isSidebarVisible);
