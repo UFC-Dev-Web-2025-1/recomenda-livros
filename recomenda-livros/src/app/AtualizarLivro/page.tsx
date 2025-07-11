@@ -24,16 +24,9 @@ export default function AtualizarLivroPage() {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <button className={styles.backButton}>{'<'}</button>
-        <h1>Atualizar Livro</h1>
-        <div className={styles.avatar}>A</div>
-      </header>
-
       <main className={styles.main}>
         <div className={styles.iconLivro} />
         <p className={styles.selecioneTexto}>Atualizando Livro da sua Estante</p>
-
         <form className={styles.form} onSubmit={handleSubmit}>
           <input
             className={styles.input}
@@ -84,16 +77,6 @@ export default function AtualizarLivroPage() {
           </div>
         </form>
       </main>
-
-    <footer className={styles.footer}>
-  <div className={styles.footerItem}>
-    <span className={styles.forumBadge}>32</span>
-    Fóruns
-  </div>
-  <div className={styles.footerItem}>
-    Recomendações
-  </div>
-</footer>
 
     </div>
   );
