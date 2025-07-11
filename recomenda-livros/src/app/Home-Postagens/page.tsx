@@ -23,7 +23,7 @@ export default function HomePostagensPage() {
       publishedYear: 1949,
       description: 'Uma jornada mágica e envolvente pela Terra-Média. Estou relendo "O Hobbit" agora e ainda me encanto com o espírito aventureiro de Bilbo, que sai de seu confortável lar para enfrentar trolls, elfos e o terrível Smaug. Cada capítulo é repleto de humor sutil e descritivo que me transportam para montanhas nevadas e florestas mágicas. Não tem como não sorrir as aventuras dos anões e se emocionar com a coragem improvável de um hobbit. Adoro como Tolkien mistura fantasia épica e amizade verdadeira; simplesmente não consigo largar este livro!',
       postAuthor: 'Jonas R.',
-      coverSrc: '/hobbit.png',
+      coverSrc: '/Hoobbit.png',
     },
     {
       id: '2',
