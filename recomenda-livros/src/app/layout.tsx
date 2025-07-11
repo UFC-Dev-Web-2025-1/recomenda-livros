@@ -18,20 +18,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        <header className="navbar">
-          <div className="navbar-content full-width">
-            <h1 className="navbar-title">Recomenda Livros</h1>
-            <span className="navbar-divider" />
-            <Image
-              src="/Education.png"
-              alt="Logo Recomenda Livros"
-              width={40}
-              height={40}
-              className="navbar-logo"
-              priority
-            />
-          </div>
-        </header>
         <main className="main-content">{children}</main>
       </body>
     </html>

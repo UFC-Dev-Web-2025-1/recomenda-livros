@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  margin-top: -20vh;
 }
 
 /* Cabeçalho fixo no topo */
@@ -84,7 +85,7 @@
   flex-direction: column;
   width: 100%;
   max-width: 600px;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 /* Campos de input e select */
@@ -136,37 +137,4 @@
   font-weight: bold;
   border: none;
   cursor: pointer;
-}
-
-/* Rodapé fixo na base */
-.footer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  background-color: #f7f9fc;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #154a80;
-  gap: 2rem;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-}
-
-.footerItem {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.forumBadge {
-  background-color: #154a80;
-  color: white;
-  border-radius: 999px;
-  padding: 0.25rem 0.6rem;
-  font-size: 0.85rem;
-  font-weight: bold;
 }

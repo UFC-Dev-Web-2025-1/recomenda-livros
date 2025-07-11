@@ -7,22 +7,21 @@ import { Box, List, ListItem, ListItemButton, ListItemText } from '@mui/material
 import { styled } from '@mui/material/styles';
 
 const StyledSidebar = styled(Box)(({ theme }) => ({
-  width: 250, // Largura fixa da sidebar
-  backgroundColor: '#154273', // Cor de fundo da sidebar
+  width: 250, 
+  backgroundColor: '#154273', 
   color: 'white',
-  paddingTop: theme.spacing(4), // Espaçamento superior
+  paddingTop: theme.spacing(4), 
   display: 'flex',
   flexDirection: 'column',
-  height: '100vh', // Ocupa a altura total da viewport
-  flexShrink: 0, // Impede que a sidebar encolha
+  height: '100vh', 
+  flexShrink: 0,
 
-  // Regra principal para esconder/mostrar a sidebar
-  // Será controlado pela prop 'isVisible'
+ 
 }));
 
 const SidebarItem = styled(ListItem)(({ theme }) => ({
   '&:hover': {
-    backgroundColor: '#0e3152', // Cor de fundo ao passar o mouse
+    backgroundColor: '#0e3152', 
   },
 }));
 
@@ -33,8 +32,8 @@ const SidebarLink = styled(Link)({
 });
 
 interface SidebarProps {
-  isVisible: boolean; // Nova prop para controlar a visibilidade
-  onLinkClick: () => void; // Para fechar a sidebar ao clicar em um link (opcional, mas bom para mobile)
+  isVisible: boolean; 
+  onLinkClick: () => void; 
 }
 
 export default function Sidebar({ isVisible, onLinkClick }: SidebarProps) {
@@ -49,11 +48,10 @@ export default function Sidebar({ isVisible, onLinkClick }: SidebarProps) {
   return (
     <StyledSidebar
       sx={{
-        display: isVisible ? 'flex' : 'none', // Controla a visibilidade com base na prop
-        // Para transição suave (opcional, pode ser mais avançado)
+        display: isVisible ? 'flex' : 'none', 
         transition: 'width 0.3s ease-in-out',
         width: isVisible ? 250 : 0,
-        overflow: 'hidden', // Esconde o conteúdo quando largura é 0
+        overflow: 'hidden', 
       }}
     >
       <List>
