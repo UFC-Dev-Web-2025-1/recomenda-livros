@@ -37,7 +37,7 @@ export default function Page() {
           width: isSidebarVisible ? 'calc(100% - 250px)' : '100%',
         }}
       >
-        <Header title="Minha Estante" avatar="A" onMenuClick={handleMenuToggle} />
+        <Header title="Minha Estante" avatar="A" config={true} onMenuClick={handleMenuToggle} />
         <div className={styles.container}>
           <div className={styles.icones}>
             <Image src="/livros.png" alt="Livros" width={90} height={90} />

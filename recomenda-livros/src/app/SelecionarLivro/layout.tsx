@@ -37,7 +37,7 @@ export default function SelecionarLivroLayout({
             width: isSidebarVisible ? 'calc(100% - 250px)' : '100%',
           }}
         >
-          <Header title="Seleciionar Livro" avatar="A" onMenuClick={handleMenuToggle} />
+          <Header title="Seleciionar Livro" avatar="A"  config={true} onMenuClick={handleMenuToggle} />
           <body className={inter.className}>
             <main className="main-content">{children}</main>
             <Footer />
