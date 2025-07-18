@@ -9,10 +9,11 @@ import SearchBar from '@/src/components/Forms/SearchBar'; // Reutilizando a Sear
 interface HeaderProps {
   title: string;
   avatar: string;
+  config: Boolean; // Propriedade opcional para configuração de exibição
   onMenuClick: () => void; // A função para lidar com o clique do menu
 }
 
-export default function Header({ title, avatar, onMenuClick }: HeaderProps) {
+export default function Header({ title, avatar,  config, onMenuClick }: HeaderProps) {
   return (
     <AppBar position="static" sx={{ backgroundColor: '#1E63B4', boxShadow: 'none' }}>
       <Toolbar sx={{ justifyContent: 'space-between', paddingLeft: { xs: 1, md: 2 } }}> {/* Ajusta padding */}
@@ -27,11 +28,11 @@ export default function Header({ title, avatar, onMenuClick }: HeaderProps) {
           <MenuIcon />
         </IconButton>
 
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
+        <Typography variant="h6"  component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
           {title}
         </Typography>
 
-        <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ flexGrow: 1, display: config ? 'flex' : 'none', justifyContent: 'center' }}>
           <SearchBar />
         </Box>
 

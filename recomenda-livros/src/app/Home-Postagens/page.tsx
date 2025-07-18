@@ -52,7 +52,7 @@ export default function HomePostagensPage() {
           width: isSidebarVisible ? 'calc(100% - 250px)' : '100%', 
         }}
       >
-        <Header title="Home" avatar="A" onMenuClick={handleMenuToggle} />
+        <Header title="Home" avatar="A" config={true} onMenuClick={handleMenuToggle} />
         <main className={styles.mainContent}>
           {posts.map(post => (
             <BookPostCard key={post.id} post={post} />
