@@ -1,0 +1,148 @@
+.gallery-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f8f9fc;
+}
+.gallery-header {
+  display: flex;
+  align-items: center;
+  background: #11457e;
+  color: white;
+  padding: 12px 20px;
+}
+.back-icon {
+  cursor: pointer;
+  font-size: 20px;
+}
+.search-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  background: white;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+.search-icon {
+  color: #888;
+  margin-right: 8px;
+}
+.search-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  background: #0064d2;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.filter-bar {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+.btn-filter {
+  display: flex;
+  align-items: center;
+  background: #0d6efd;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn-filter svg {
+  margin-right: 6px;
+}
+.filter-text {
+  margin-left: 16px;
+  font-size: 14px;
+  color: #555;
+}
+.book-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+  gap: 24px;
+  padding: 24px 20px;
+}
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+.card img {
+  width: 100%;
+  height: auto;
+}
+.card-info {
+  padding: 12px;
+}
+.card-info h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+.author {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #666;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.rating svg {
+  color: #ccc;
+  margin-right: 2px;
+}
+.rating svg.filled {
+  color: #f5c518;
+}
+.rating span {
+  margin-left: 6px;
+  font-size: 14px;
+  color: #333;
+}
+.tag {
+  display: inline-block;
+  background: #0d6efd;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+.gallery-footer {
+  background: white;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  border-top: 1px solid #e0e0e0;
+}
+.footer-link {
+  text-decoration: none;
+  color: #11457e;
+  font-weight: 500;
+}
+.badge {
+  background: #11457e;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  margin-left: 4px;
+}
