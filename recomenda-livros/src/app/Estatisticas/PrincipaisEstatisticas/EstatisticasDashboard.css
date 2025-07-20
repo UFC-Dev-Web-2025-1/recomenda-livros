@@ -1,0 +1,125 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f8f9fc;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  background: #11457e;
+  color: white;
+  padding: 12px 20px;
+}
+
+.menu-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.dashboard-header h1 {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 18px;
+}
+
+.avatar-icon {
+  font-size: 26px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.summary-card {
+  background: #2c5aa0;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  min-width: 180px;
+  text-align: center;
+}
+
+.summary-label {
+  margin: 0;
+  font-size: 14px;
+}
+
+.summary-value {
+  margin: 4px 0 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 24px;
+  text-align: center;
+  position: relative;
+  width: 220px;
+}
+
+.stat-icon {
+  font-size: 48px;
+  color: #5a7bb1;
+}
+
+.stat-card h2 {
+  margin: 16px 0 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.stat-text {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.share-icon {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  font-size: 16px;
+  color: #888;
+  cursor: pointer;
+}
+
+.dashboard-footer {
+  margin-top: auto;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.dashboard-footer a {
+  text-decoration: none;
+  color: #11457e;
+  font-weight: 500;
+}
+
+.badge {
+  background: #11457e;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  margin-left: 4px;
+}
