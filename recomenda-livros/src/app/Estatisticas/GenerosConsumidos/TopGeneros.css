@@ -1,0 +1,92 @@
+.genres-container { 
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh; 
+  background: #f8f9fc; 
+}
+
+.genres-header {
+  display: flex; 
+  align-items: center; 
+  background: #11457e; 
+  color: white; 
+  padding: 12px 20px;
+}
+
+.genres-menu { 
+  font-size: 20px; 
+  cursor: pointer; 
+}
+
+.genres-header h1 { 
+  flex: 1; 
+  text-align: center; 
+  margin: 0; 
+  font-size: 18px; 
+}
+
+.genres-avatar { 
+  font-size: 26px; 
+}
+
+.genres-content {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 50px; 
+  padding: 40px 20px;
+  flex: 1;
+}
+
+.donut-chart { 
+  position: relative; 
+}
+
+.donut-center {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.trophy-icon { 
+  font-size: 32px; 
+  color: #11457e; 
+}
+
+.trophy-text { 
+  margin-top: 4px; 
+  font-weight: bold; 
+  color: #11457e; 
+}
+
+.bar-chart-container { 
+  width: 400px; 
+  height: 300px; 
+}
+
+.genres-footer {
+  margin-top: auto; 
+  background: white; 
+  border-top: 1px solid #e0e0e0;
+  padding: 12px 20px; 
+  display: flex; 
+  justify-content: flex-end; 
+  gap: 24px;
+}
+
+.genres-footer a { 
+  text-decoration: none; 
+  color: #11457e; 
+  font-weight: 500; 
+}
+
+.badge {
+  background: #11457e; 
+  color: white; 
+  font-size: 12px; 
+  padding: 2px 6px; 
+  border-radius: 50%; 
+  margin-left: 4px;
+}
