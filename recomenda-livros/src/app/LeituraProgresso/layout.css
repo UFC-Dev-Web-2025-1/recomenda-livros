@@ -1,0 +1,28 @@
+.leitura-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.leitura-content {
+  flex-grow: 1;
+}
+
+.leitura-main {
+  max-width: 900px;
+  margin: 32px auto 0 auto;
+  padding: 0 16px;
+}
+
+.leitura-card {
+  margin-bottom: 24px;
+}
+
+.leitura-progress-text {
+  margin-top: 16px;
+}
+
+.leitura-progress-bar {
+  height: 10px !important;
+  border-radius: 5px;
+  margin: 8px 0 !important;
+}

@@ -4,6 +4,7 @@ import { Avatar, Box, Button, Card, CardContent, Typography } from '@mui/materia
 import Header from '../../components/Layout/Header/Header'
 import Sidebar from '../../components/Navigation/Slidebar'
 import { useState } from 'react'
+import './layout.css'
 
 export default function PerfilPage() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
@@ -15,9 +16,9 @@ export default function PerfilPage() {
   }
 
   return (
-    <Box sx={{ display: 'flex', minHeight: '100vh' }}>
+    <Box className="perfil-container">
       <Sidebar isVisible={sidebarOpen} onLinkClick={() => setSidebarOpen(false)} />
-      <Box sx={{ flexGrow: 1 }}>
+      <Box className="perfil-content">
         <Header
           title="Perfil"
           avatar="A"
@@ -25,34 +26,34 @@ export default function PerfilPage() {
           onMenuClick={() => setSidebarOpen(!sidebarOpen)}
         />
 
-        <Box sx={{ mt: 6, display: 'flex', justifyContent: 'center', px: 2 }}>
-          <Card sx={{ maxWidth: 500, width: '100%', p: 3, boxShadow: 3 }}>
-            <CardContent sx={{ textAlign: 'center' }}>
+        <Box className="perfil-card-wrapper">
+          <Card className="perfil-card">
+            <CardContent className="perfil-card-content">
               <Typography variant="h6" gutterBottom>
                 Perfil
               </Typography>
 
-              <Avatar sx={{ bgcolor: 'orange', width: 64, height: 64, margin: '0 auto' }}>A</Avatar>
-              <Typography variant="body2" color="textSecondary" sx={{ mb: 2 }}>
+              <Avatar className="perfil-avatar">A</Avatar>
+              <Typography variant="body2" color="textSecondary" className="perfil-avatar-label">
                 Avatar
               </Typography>
 
-              <Typography sx={{ mb: 1 }}>
+              <Typography className="perfil-info">
                 <strong>Nome:</strong> {perfil.nome}
               </Typography>
 
-              <Typography sx={{ mb: 1 }}>
+              <Typography className="perfil-info">
                 <strong>Email:</strong> {perfil.email}
               </Typography>
 
-              <Typography>
+              <Typography className="perfil-info">
                 <strong>Data de Nascimento:</strong> {perfil.nascimento}
               </Typography>
 
               <Button
                 variant="contained"
-                sx={{ mt: 3 }}
                 fullWidth
+                className="perfil-editar-button"
               >
                 Editar Informações
               </Button>
