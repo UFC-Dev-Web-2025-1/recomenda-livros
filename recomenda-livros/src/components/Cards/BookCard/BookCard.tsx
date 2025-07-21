@@ -1,11 +1,9 @@
-// src/components/BookCard/BookCard.tsx
 "use client";
 import React from 'react';
 import { Paper, Box } from '@mui/material';
 import BookCover from './BookCover';
 import BookDetails from './BookDetails';
 
-// Interface para definir a estrutura dos dados do livro
 interface Book {
   id: string;
   title: string;

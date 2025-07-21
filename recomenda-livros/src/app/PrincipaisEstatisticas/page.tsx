@@ -1,7 +1,8 @@
+'use client';
 import { FaBars, FaUserCircle, FaChartBar, FaBookOpen, FaClock, FaShareAlt } from 'react-icons/fa';
 import './EstatisticasDashboard.css';
 
-const EstatisticasDashboard = () => {
+export default function EstatisticasDashboard () {
   const totalBooksRead = 25;
   const readingStreak = 13;
   const topGenres = ['Romance', 'Fantasia', 'Suspense'];
@@ -58,4 +59,4 @@ const EstatisticasDashboard = () => {
   );
 };
 
-export default EstatisticasDashboard;
+

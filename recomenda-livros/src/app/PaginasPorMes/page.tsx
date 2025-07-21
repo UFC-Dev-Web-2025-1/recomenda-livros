@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import { FaBars, FaUserCircle } from 'react-icons/fa';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
@@ -20,8 +21,8 @@ const PaginasPorMes = () => {
   const [goal, setGoal] = useState(1200);
   const [chartData] = useState(initialData);
 
-  const handleGoalChange = (e, newValue) => {
-    setGoal(newValue);
+  const handleGoalChange = (_: Event, newValue: number | number[]) => {
+    setGoal(newValue as number);
   };
 
   return (

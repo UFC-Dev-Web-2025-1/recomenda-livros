@@ -1,3 +1,4 @@
+'use client';
 import { FaBars, FaUserCircle } from 'react-icons/fa';
 import {
   PieChart,
