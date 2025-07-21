@@ -1,0 +1,45 @@
+.perfil-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.perfil-content {
+  flex-grow: 1;
+}
+
+.perfil-card-wrapper {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.perfil-card {
+  max-width: 500px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-card-content {
+  text-align: center;
+}
+
+.perfil-avatar {
+  background-color: orange !important;
+  width: 64px !important;
+  height: 64px !important;
+  margin: 0 auto;
+}
+
+.perfil-avatar-label {
+  margin-bottom: 16px;
+}
+
+.perfil-info {
+  margin-bottom: 8px;
+}
+
+.perfil-editar-button {
+  margin-top: 24px !important;
+}

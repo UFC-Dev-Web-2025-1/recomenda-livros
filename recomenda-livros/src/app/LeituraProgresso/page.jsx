@@ -12,6 +12,7 @@ import {
 } from '@mui/material'
 import Header from '../../components/Layout/Header/Header'
 import Sidebar from '../../components/Navigation/Slidebar'
+import './layout.css'
 
 export default function LeituraProgressoPage() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
@@ -41,10 +42,10 @@ export default function LeituraProgressoPage() {
   }
 
   return (
-    <Box sx={{ display: 'flex', minHeight: '100vh' }}>
+    <Box className="leitura-container">
       <Sidebar isVisible={sidebarOpen} onLinkClick={() => setSidebarOpen(false)} />
 
-      <Box sx={{ flexGrow: 1 }}>
+      <Box className="leitura-content">
         <Header
           title="Leitura em Progresso"
           avatar="A"
@@ -52,27 +53,27 @@ export default function LeituraProgressoPage() {
           onMenuClick={() => setSidebarOpen(!sidebarOpen)}
         />
 
-        <Box sx={{ maxWidth: 900, mx: 'auto', mt: 4, px: 2 }}>
+        <Box className="leitura-main">
           <Typography variant="h4" gutterBottom>Livros em Andamento</Typography>
 
           {livros.map((livro) => {
             const progresso = (livro.paginasLidas / livro.totalPaginas) * 100
 
             return (
-              <Card key={livro.id} variant="outlined" sx={{ mb: 3 }}>
+              <Card key={livro.id} variant="outlined" className="leitura-card">
                 <CardContent>
                   <Typography variant="h6">{livro.titulo}</Typography>
                   <Typography variant="subtitle2" color="text.secondary">
                     Autor: {livro.autor}
                   </Typography>
 
-                  <Typography sx={{ mt: 2 }}>
+                  <Typography className="leitura-progress-text">
                     Progresso: {Math.round(progresso)}% ({livro.paginasLidas} de {livro.totalPaginas} páginas)
                   </Typography>
                   <LinearProgress
                     variant="determinate"
                     value={progresso}
-                    sx={{ height: 10, borderRadius: 5, my: 1 }}
+                    className="leitura-progress-bar"
                   />
 
                   <TextField
