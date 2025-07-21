@@ -1,0 +1,52 @@
+/* layout.css */
+
+.recomendacao-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.conteudo-principal {
+  flex-grow: 1;
+}
+
+.area-principal {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.filtros {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filtro-select {
+  width: 180px;
+}
+
+.card-livro {
+  width: 280px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-imagem {
+  object-fit: cover;
+}
+
+.card-conteudo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
