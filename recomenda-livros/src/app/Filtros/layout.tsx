@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
       <body>
-        <Header title="Buscar Livro" avatar="A" onMenuClick={handleMenuToggle}/>
+        <Header title="Buscar Livro" avatar="A" config={true}  onMenuClick={handleMenuToggle}/>
         <main>{children}</main>
       </body>
     </html>

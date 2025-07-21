@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import { FaBars, FaUserCircle } from 'react-icons/fa';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
