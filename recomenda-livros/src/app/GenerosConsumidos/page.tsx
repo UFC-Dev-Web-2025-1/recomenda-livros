@@ -1,3 +1,4 @@
+'use client';
 import { FaBars, FaUserCircle } from 'react-icons/fa';
 import {
   PieChart,
@@ -26,7 +27,7 @@ export default function TopGeneros() {
     <div className="genres-container">
       <header className="genres-header">
         <FaBars className="genres-menu" />
-        <h1>Gêneros mais consumidos por você  </h1>
+        <h1>Gêneros mais consumidos por você</h1>
         <FaUserCircle className="genres-avatar" />
       </header>
       <div className="genres-content">

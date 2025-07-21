@@ -1,29 +1,28 @@
-// src/components/Layout/Header/Header.tsx
 "use client";
 
 import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Box, Avatar } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu'; // Importa o ícone de hambúrguer
-import SearchBar from '@/src/components/Forms/SearchBar'; // Reutilizando a SearchBar
+import MenuIcon from '@mui/icons-material/Menu'; 
+import SearchBar from '@/src/components/Forms/SearchBar'; 
 
 interface HeaderProps {
   title: string;
   avatar: string;
-  config: Boolean; // Propriedade opcional para configuração de exibição
-  onMenuClick: () => void; // A função para lidar com o clique do menu
+  config: Boolean; 
+  onMenuClick: () => void; 
 }
 
 export default function Header({ title, avatar,  config, onMenuClick }: HeaderProps) {
   return (
     <AppBar position="static" sx={{ backgroundColor: '#1E63B4', boxShadow: 'none' }}>
-      <Toolbar sx={{ justifyContent: 'space-between', paddingLeft: { xs: 1, md: 2 } }}> {/* Ajusta padding */}
-        {/* Ícone de Menu Hambúrguer */}
+      <Toolbar sx={{ justifyContent: 'space-between', paddingLeft: { xs: 1, md: 2 } }}>
+       
         <IconButton
           edge="start"
           color="inherit"
           aria-label="menu"
-          onClick={onMenuClick} // Chama a função passada pelo pai
-          sx={{ mr: { xs: 1, md: 2 } }} // Espaçamento à direita
+          onClick={onMenuClick} 
+          sx={{ mr: { xs: 1, md: 2 } }} 
         >
           <MenuIcon />
         </IconButton>

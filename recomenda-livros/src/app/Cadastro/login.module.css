@@ -87,3 +87,22 @@
 .createButton:hover {
   background: #003e8a;
 }
+.registerText {
+    text-align: center;
+    margin-top: 2rem;
+    color: #666;
+    font-size: 1rem;
+}
+
+.registerLink {
+    color: #0057B8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.registerLink:hover,
+.registerLink:focus {
+    text-decoration: underline;
+    color: #003e8a;
+}
