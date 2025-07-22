@@ -50,12 +50,16 @@ export default function PerfilPage() {
                 <strong>Data de Nascimento:</strong> {perfil.nascimento}
               </Typography>
 
+
               <Button
+
                 variant="contained"
                 fullWidth
                 className="perfil-editar-button"
+                href="/ConfiguracoesPerfil"
               >
                 Editar Informações
+
               </Button>
             </CardContent>
           </Card>

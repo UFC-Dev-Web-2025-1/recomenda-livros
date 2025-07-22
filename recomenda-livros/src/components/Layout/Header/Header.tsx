@@ -14,7 +14,7 @@ interface HeaderProps {
 
 export default function Header({ title, avatar,  config, onMenuClick }: HeaderProps) {
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#1E63B4', boxShadow: 'none' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#154273', boxShadow: 'none' }}>
       <Toolbar sx={{ justifyContent: 'space-between', paddingLeft: { xs: 1, md: 2 } }}>
        
         <IconButton
