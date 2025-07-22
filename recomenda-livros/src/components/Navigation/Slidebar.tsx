@@ -46,7 +46,7 @@ export default function Sidebar({ isVisible, onLinkClick }: SidebarProps) {
     { text: 'Minha Estante', href: '/MinhaEstante' },
     { text: 'Selecionar Livro', href: '/SelecionarLivro' },
     { text: 'Principal de Estatísticas', href: '/Estatisticas' },
-    { text: 'Perfil', href: '/ConfiguracoesPerfil' },
+    { text: 'Perfil', href: '/Perfil' },
     { text: 'Login', href: '/' },
     { text: 'Sair', onClick: handleLinkClick, href: '/' },
   ];
