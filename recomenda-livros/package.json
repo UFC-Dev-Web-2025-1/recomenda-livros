@@ -13,6 +13,11 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
+<<<<<<< Updated upstream
+=======
+    "axios": "^1.11.0",
+    "firebase": "^12.0.0",
+>>>>>>> Stashed changes
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
