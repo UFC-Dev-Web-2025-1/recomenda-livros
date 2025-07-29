@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_livros_app_livros",
+  "info": {
+    "displayName": "Livros"
+  },
+  "options": {},
+  "attributes": {
+    "Livros": {
+      "type": "text"
+    },
+    "quantidade": {
+      "type": "integer"
+    },
+    "lancamento": {
+      "type": "date"
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "descricao": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}
