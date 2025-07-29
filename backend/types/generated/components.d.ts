@@ -52,7 +52,7 @@ export interface LivrosAppLeituraProgresso extends Struct.ComponentSchema {
 export interface LivrosAppLivros extends Struct.ComponentSchema {
   collectionName: 'components_livros_app_livros';
   info: {
-    displayName: 'Livros';
+    displayName: 'SelecionarLivro';
   };
   attributes: {
     descricao: Schema.Attribute.RichText;
