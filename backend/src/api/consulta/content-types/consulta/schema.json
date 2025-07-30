@@ -1,23 +1,23 @@
-o{
+{
   "kind": "collectionType",
-  "collectionName": "forums",
+  "collectionName": "consultas",
   "info": {
-    "singularName": "forum",
-    "pluralName": "forums",
-    "displayName": "Forum"
+    "singularName": "consulta",
+    "pluralName": "consultas",
+    "displayName": "Consulta"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Nome": {
+    "titulos": {
       "type": "string"
     },
-    "Postagens": {
+    "postado": {
       "type": "datetime"
     },
-    "imagem": {
+    "capadolivro": {
       "type": "media",
       "multiple": true,
       "allowedTypes": [
@@ -27,11 +27,13 @@ o{
         "audios"
       ]
     },
-    "forum": {
-      "type": "uid"
+    "minha_estante": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::minha-estante.minha-estante"
     },
-    "escrever": {
-      "type": "richtext"
+    "quantidade": {
+      "type": "integer"
     }
   }
 }

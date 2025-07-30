@@ -413,6 +413,81 @@ export interface ApiAtualizarLivroAtualizarLivro
   };
 }
 
+export interface ApiCadastroCadastro extends Struct.CollectionTypeSchema {
+  collectionName: 'cadastros';
+  info: {
+    displayName: 'Cadastro';
+    pluralName: 'cadastros';
+    singularName: 'cadastro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    imagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cadastro.cadastro'
+    > &
+      Schema.Attribute.Private;
+    pessoa: Schema.Attribute.Relation<'oneToOne', 'api::usuario.usuario'>;
+    publishedAt: Schema.Attribute.DateTime;
+    quandorealizou: Schema.Attribute.DateTime;
+    quantidade: Schema.Attribute.Integer;
+    senha: Schema.Attribute.Password;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    usuario: Schema.Attribute.UID;
+  };
+}
+
+export interface ApiConsultaConsulta extends Struct.CollectionTypeSchema {
+  collectionName: 'consultas';
+  info: {
+    displayName: 'Consulta';
+    pluralName: 'consultas';
+    singularName: 'consulta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    capadolivro: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::consulta.consulta'
+    > &
+      Schema.Attribute.Private;
+    minha_estante: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::minha-estante.minha-estante'
+    >;
+    postado: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    quantidade: Schema.Attribute.Integer;
+    titulos: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiForumForum extends Struct.CollectionTypeSchema {
   collectionName: 'forums';
   info: {
@@ -439,6 +514,46 @@ export interface ApiForumForum extends Struct.CollectionTypeSchema {
     Nome: Schema.Attribute.String;
     Postagens: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMinhaEstanteMinhaEstante
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'minha_estantes';
+  info: {
+    displayName: 'MinhaEstante';
+    pluralName: 'minha-estantes';
+    singularName: 'minha-estante';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    atualizar_livro: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::atualizar-livro.atualizar-livro'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricaodolivro: Schema.Attribute.RichText;
+    disponivel: Schema.Attribute.Boolean;
+    imagemdacapa: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::minha-estante.minha-estante'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    quantidade: Schema.Attribute.Integer;
+    Titulo: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -550,6 +665,46 @@ export interface ApiUsuarioUsuario extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Usuarios: Schema.Attribute.String;
+  };
+}
+
+export interface ApiVerificacaoVerificacao extends Struct.CollectionTypeSchema {
+  collectionName: 'verificacaos';
+  info: {
+    displayName: 'Verifica\u00E7\u00E3odelivros';
+    pluralName: 'verificacaos';
+    singularName: 'verificacao';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    capa: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.RichText;
+    disponivel: Schema.Attribute.Boolean;
+    identificador: Schema.Attribute.UID<'Titulo'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::verificacao.verificacao'
+    > &
+      Schema.Attribute.Private;
+    minha_estante: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::minha-estante.minha-estante'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    quantidade: Schema.Attribute.Integer;
+    Titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1063,10 +1218,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::atualizar-livro.atualizar-livro': ApiAtualizarLivroAtualizarLivro;
+      'api::cadastro.cadastro': ApiCadastroCadastro;
+      'api::consulta.consulta': ApiConsultaConsulta;
       'api::forum.forum': ApiForumForum;
+      'api::minha-estante.minha-estante': ApiMinhaEstanteMinhaEstante;
       'api::registro.registro': ApiRegistroRegistro;
       'api::selecionar-livro.selecionar-livro': ApiSelecionarLivroSelecionarLivro;
       'api::usuario.usuario': ApiUsuarioUsuario;
+      'api::verificacao.verificacao': ApiVerificacaoVerificacao;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
