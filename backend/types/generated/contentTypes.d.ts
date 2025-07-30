@@ -373,6 +373,46 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAtualizarLivroAtualizarLivro
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'atualizar_livros';
+  info: {
+    displayName: 'AtualizarLivro';
+    pluralName: 'atualizar-livros';
+    singularName: 'atualizar-livro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.RichText;
+    imagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::atualizar-livro.atualizar-livro'
+    > &
+      Schema.Attribute.Private;
+    modificacao: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    quantidade: Schema.Attribute.Integer;
+    selecionar_livro: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::selecionar-livro.selecionar-livro'
+    >;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiForumForum extends Struct.CollectionTypeSchema {
   collectionName: 'forums';
   info: {
@@ -402,6 +442,114 @@ export interface ApiForumForum extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRegistroRegistro extends Struct.CollectionTypeSchema {
+  collectionName: 'registros';
+  info: {
+    displayName: 'Registro';
+    pluralName: 'registros';
+    singularName: 'registro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.RichText;
+    imagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::registro.registro'
+    > &
+      Schema.Attribute.Private;
+    publicacao: Schema.Attribute.DateTime;
+    publicado: Schema.Attribute.Boolean;
+    publishedAt: Schema.Attribute.DateTime;
+    quantidade: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    usuario: Schema.Attribute.UID;
+  };
+}
+
+export interface ApiSelecionarLivroSelecionarLivro
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'selecionar_livros';
+  info: {
+    displayName: 'SelecionarLivro';
+    pluralName: 'selecionar-livros';
+    singularName: 'selecionar-livro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.RichText;
+    imagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    lancamento: Schema.Attribute.DateTime;
+    livros: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::selecionar-livro.selecionar-livro'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    quantidade: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUsuarioUsuario extends Struct.CollectionTypeSchema {
+  collectionName: 'usuarios';
+  info: {
+    displayName: 'Usuario';
+    pluralName: 'usuarios';
+    singularName: 'usuario';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    imagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::usuario.usuario'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    quantidade: Schema.Attribute.Integer;
+    relacao: Schema.Attribute.UID<'Usuarios'>;
+    senha: Schema.Attribute.Password;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Usuarios: Schema.Attribute.String;
   };
 }
 
@@ -914,7 +1062,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::atualizar-livro.atualizar-livro': ApiAtualizarLivroAtualizarLivro;
       'api::forum.forum': ApiForumForum;
+      'api::registro.registro': ApiRegistroRegistro;
+      'api::selecionar-livro.selecionar-livro': ApiSelecionarLivroSelecionarLivro;
+      'api::usuario.usuario': ApiUsuarioUsuario;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

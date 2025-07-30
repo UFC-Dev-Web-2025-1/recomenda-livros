@@ -1,18 +1,24 @@
 {
-  "collectionName": "components_livros_app_livros",
+  "kind": "collectionType",
+  "collectionName": "selecionar_livros",
   "info": {
+    "singularName": "selecionar-livro",
+    "pluralName": "selecionar-livros",
     "displayName": "SelecionarLivro"
   },
-  "options": {},
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
   "attributes": {
-    "Livros": {
-      "type": "text"
+    "livros": {
+      "type": "string"
     },
     "quantidade": {
       "type": "integer"
     },
     "lancamento": {
-      "type": "date"
+      "type": "datetime"
     },
     "imagem": {
       "type": "media",
@@ -27,6 +33,5 @@
     "descricao": {
       "type": "richtext"
     }
-  },
-  "config": {}
+  }
 }

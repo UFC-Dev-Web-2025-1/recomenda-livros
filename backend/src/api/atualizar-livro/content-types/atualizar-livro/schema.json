@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "atualizar_livros",
+  "info": {
+    "singularName": "atualizar-livro",
+    "pluralName": "atualizar-livros",
+    "displayName": "AtualizarLivro"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "modificacao": {
+      "type": "datetime"
+    },
+    "quantidade": {
+      "type": "integer"
+    },
+    "selecionar_livro": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::selecionar-livro.selecionar-livro"
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "descricao": {
+      "type": "richtext"
+    }
+  }
+}
