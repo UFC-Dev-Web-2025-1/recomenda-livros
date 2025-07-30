@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "consultas",
+  "info": {
+    "singularName": "consulta",
+    "pluralName": "consultas",
+    "displayName": "Consulta"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulos": {
+      "type": "string"
+    },
+    "postado": {
+      "type": "datetime"
+    },
+    "capadolivro": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "minha_estante": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::minha-estante.minha-estante"
+    },
+    "quantidade": {
+      "type": "integer"
+    }
+  }
+}

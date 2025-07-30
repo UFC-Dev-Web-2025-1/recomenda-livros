@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "selecionar_livros",
+  "info": {
+    "singularName": "selecionar-livro",
+    "pluralName": "selecionar-livros",
+    "displayName": "SelecionarLivro"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "livros": {
+      "type": "string"
+    },
+    "quantidade": {
+      "type": "integer"
+    },
+    "lancamento": {
+      "type": "datetime"
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "descricao": {
+      "type": "richtext"
+    }
+  }
+}

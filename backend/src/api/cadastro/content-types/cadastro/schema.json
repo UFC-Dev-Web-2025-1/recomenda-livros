@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cadastros",
+  "info": {
+    "singularName": "cadastro",
+    "pluralName": "cadastros",
+    "displayName": "Cadastro"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "usuario": {
+      "type": "uid"
+    },
+    "pessoa": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::usuario.usuario"
+    },
+    "email": {
+      "type": "email"
+    },
+    "quandorealizou": {
+      "type": "datetime"
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "senha": {
+      "type": "password"
+    },
+    "quantidade": {
+      "type": "integer"
+    }
+  }
+}
