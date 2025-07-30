@@ -520,6 +520,44 @@ export interface ApiForumForum extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLivroLivro extends Struct.CollectionTypeSchema {
+  collectionName: 'livros';
+  info: {
+    displayName: 'Livro';
+    pluralName: 'livros';
+    singularName: 'livro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    autor: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.RichText;
+    identificador: Schema.Attribute.UID<'titulo'>;
+    imagem: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    lancamentos: Schema.Attribute.DateTime;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::livro.livro'> &
+      Schema.Attribute.Private;
+    minha_estante: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::minha-estante.minha-estante'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    quantidade: Schema.Attribute.Integer;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMinhaEstanteMinhaEstante
   extends Struct.CollectionTypeSchema {
   collectionName: 'minha_estantes';
@@ -1221,6 +1259,7 @@ declare module '@strapi/strapi' {
       'api::cadastro.cadastro': ApiCadastroCadastro;
       'api::consulta.consulta': ApiConsultaConsulta;
       'api::forum.forum': ApiForumForum;
+      'api::livro.livro': ApiLivroLivro;
       'api::minha-estante.minha-estante': ApiMinhaEstanteMinhaEstante;
       'api::registro.registro': ApiRegistroRegistro;
       'api::selecionar-livro.selecionar-livro': ApiSelecionarLivroSelecionarLivro;
