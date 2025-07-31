@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import styles from './login.module.css';
-<<<<<<< Updated upstream
 
 export default function SelecionarLivroPage() {
   const [nomeLivro, setNomeLivro] = useState('');
@@ -68,19 +67,6 @@ export default function SelecionarLivroPage() {
             <button type="submit" className={styles.selectButton}>Selecionar</button>
           </div>
         </form>
-=======
-import FormLivro from '@/src/components/Forms/FormLivro/FormLivro';
-import Footer from '@/src/components/Layout/Footer/footer';
-
-export default function SelecionarLivroPage() {
-  return (
-    <div className={styles.container}>
-   
-      <main className={styles.main}>
-        <div className={styles.iconLivro} />
-        <p className={styles.selecioneTexto}>Selecione o livro para sua Estante</p>
-        <FormLivro />
->>>>>>> Stashed changes
       </main>
 
 
