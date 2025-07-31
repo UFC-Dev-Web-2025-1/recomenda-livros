@@ -1,26 +1,36 @@
+// recomenda-livros/src/app/page.tsx
 'use client';
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Login.module.css";
 import { Inter } from "next/font/google";
 import { useState } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from 'next/navigation'; 
 
 const inter = Inter({ subsets: ["latin"] });
-
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const login = (email: string, password: string) => {
-    
+  const { data: session, status } = useSession(); 
+  const router = useRouter(); 
+
+  if (status === "authenticated") {
+    router.push('/Home-Postagens'); 
+    return null;
+  }
+
+  const login = (emailInput: string, passwordInput: string) => {
     const userData = localStorage.getItem('userData');
-    console.log("login:",email, password);
+    console.log("login:", emailInput, passwordInput);
     if (userData) {
       const parsedData = JSON.parse(userData);
       console.log(parsedData,"\n", parsedData.email, parsedData.senha);
-      if (parsedData.email == email && parsedData.senha == password) {
+      if (parsedData.email === emailInput && parsedData.senha === passwordInput) {
         alert("Login bem-sucedido!");
-        history.pushState({}, '', '/Home-Postagens'); 
+  
+        router.push('/Home-Postagens');
       } else {
         alert("Email ou senha incorretos.");
       }
@@ -28,6 +38,11 @@ export default function LoginPage() {
       alert("Nenhum usuário registrado.");
     }
   }
+
+  const handleGoogleSignIn = () => {
+    signIn('google'); 
+  };
+
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
@@ -45,8 +60,7 @@ export default function LoginPage() {
             />
           </div>
         </header>
-          <form  onSubmit={(e) =>login(email, password)} className={styles.form}>
-
+          <form onSubmit={(e) => { e.preventDefault(); login(email, password); }} className={styles.form}>
             <div className={styles.container}>
               <h1 className={styles.title}>Seja Bem-vindo(a)</h1>
               <div className={styles.inputGroup}>
@@ -60,8 +74,6 @@ export default function LoginPage() {
                 />
               </div>
 
-
-
               <div className={styles.inputGroup}>
                 <label htmlFor="password">Senha:</label>
                 <input
@@ -70,19 +82,17 @@ export default function LoginPage() {
                   placeholder="********"
                   className={styles.input}
                   onChange={(e) => setPassword(e.target.value)}
-
                 />
-
                 <div className={styles.forgotPassword}>
                   <Link href="/forgot-password">Esqueceu a senha?</Link>
                 </div>
               </div>
 
-              <input   type='submit'  value='Login' className={styles.loginButton} />
+              <input type='submit' value='Login' className={styles.loginButton} />
 
               <div className={styles.divider}>OU</div>
 
-              <button className={styles.googleButton}>
+              <button type="button" className={styles.googleButton} onClick={handleGoogleSignIn}>
                 <Image
                   src="/logogoogle.png"
                   alt="Google Logo"
