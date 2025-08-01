@@ -102,17 +102,19 @@
     }
   ],
   "livros": [
-    {
-      "id": "1",
-      "title": "A Hora é da Estrela",
-      "author": "Clarice Lispector",
-      "coverSrc": "/clarice-book.png",
-      "rating": 4.5,
-      "completionPercentage": 100,
-      "genre": "Ficção",
-      "popularidade": 5,
-      "sinopse": "Uma narrativa profunda sobre a vida de Macabéa..."
-    },
+  {
+    "id": "1",
+    "title": "A Hora é da Estrela",
+    "author": "Clarice Lispector",
+    "coverSrc": "/clarice-book.png",
+    "rating": 4.5,
+    "completionPercentage": 100,
+    "totalPaginas": 96,
+    "paginasLidas": 96,
+    "genre": "Ficção",
+    "popularidade": 5,
+    "sinopse": "Uma narrativa profunda sobre a vida de Macabéa..."
+  },
   {
     "id": "2",
     "title": "O Hobbit",
@@ -120,6 +122,8 @@
     "coverSrc": "https://covers.openlibrary.org/b/id/6979861-L.jpg",
     "rating": 5,
     "completionPercentage": 90,
+    "totalPaginas": 310,
+    "paginasLidas": 279,
     "genre": "Fantasia",
     "popularidade": 4,
     "sinopse": "Uma aventura épica pela Terra Média."
@@ -131,6 +135,8 @@
     "coverSrc": "https://covers.openlibrary.org/b/id/7222246-L.jpg",
     "rating": 4.8,
     "completionPercentage": 85,
+    "totalPaginas": 328,
+    "paginasLidas": 279,
     "genre": "Ficção distópica",
     "popularidade": 5,
     "sinopse": "Uma distopia sobre vigilância e liberdade."
@@ -142,6 +148,8 @@
     "coverSrc": "https://covers.openlibrary.org/b/id/11102243-L.jpg",
     "rating": 4.6,
     "completionPercentage": 95,
+    "totalPaginas": 256,
+    "paginasLidas": 243,
     "genre": "Romance",
     "popularidade": 4,
     "sinopse": "Bentinho, Capitu e o mistério do adultério."
@@ -153,6 +161,8 @@
     "coverSrc": "https://covers.openlibrary.org/b/id/10423216-L.jpg",
     "rating": 4.7,
     "completionPercentage": 92,
+    "totalPaginas": 112,
+    "paginasLidas": 103,
     "genre": "Sátira política",
     "popularidade": 4,
     "sinopse": "Animais se rebelam em uma fazenda."
@@ -164,6 +174,8 @@
     "coverSrc": "https://covers.openlibrary.org/b/id/8221256-L.jpg",
     "rating": 4.9,
     "completionPercentage": 100,
+    "totalPaginas": 96,
+    "paginasLidas": 96,
     "genre": "Fábula",
     "popularidade": 5,
     "sinopse": "Um menino vindo de outro planeta e seus ensinamentos."
@@ -175,6 +187,8 @@
     "coverSrc": "https://covers.openlibrary.org/b/id/11074423-L.jpg",
     "rating": 4.3,
     "completionPercentage": 80,
+    "totalPaginas": 220,
+    "paginasLidas": 176,
     "genre": "Romance",
     "popularidade": 3,
     "sinopse": "Aurélia Camargo e o jogo do casamento."
@@ -186,6 +200,8 @@
     "coverSrc": "https://covers.openlibrary.org/b/id/7984916-L.jpg",
     "rating": 5,
     "completionPercentage": 100,
+    "totalPaginas": 223,
+    "paginasLidas": 223,
     "genre": "Fantasia",
     "popularidade": 5,
     "sinopse": "O início da saga de Harry Potter em Hogwarts."
@@ -197,6 +213,8 @@
     "coverSrc": "https://covers.openlibrary.org/b/id/11102309-L.jpg",
     "rating": 4.7,
     "completionPercentage": 70,
+    "totalPaginas": 208,
+    "paginasLidas": 145,
     "genre": "Realismo",
     "popularidade": 3,
     "sinopse": "Uma narrativa pós-morte cheia de sarcasmo."
@@ -208,12 +226,13 @@
     "coverSrc": "https://covers.openlibrary.org/b/id/8091016-L.jpg",
     "rating": 4.1,
     "completionPercentage": 100,
+    "totalPaginas": 192,
+    "paginasLidas": 192,
     "genre": "Ficção filosófica",
     "popularidade": 4,
     "sinopse": "Santiago busca seu destino em uma viagem de autoconhecimento."
   }
 ],
-
   "usuarios": [
     {
       "id": "1",
@@ -305,17 +324,8 @@
       "date": "10/08/2025"
     }
   ],
-  "estatisticas": [
-    {
-      "id": "1",
-      "totalBooksRead": 25,
-      "readingStreak": 13,
-      "topGenres": [
-        "Romance",
-        "Fantasia",
-        "Suspense"
-      ],
-      "pagesPerMonth": [
+
+    "pagesPerMonth": [
         {
           "month": "Jan",
           "pages": 800
@@ -416,10 +426,7 @@
       "rating": 4.3,
       "completionPercentage": 80
     }
-  ],
-  "perfil": {
-    "nome": "Bom Leitor",
-    "email": "exemplo@gmail.com",
-    "nascimento": "2001-01-01"
-  }
+
+  ]
+
 }
