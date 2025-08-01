@@ -21,12 +21,16 @@ export default function PerfilPage() {
   useEffect(() => {
     async function fetchPerfil() {
       try {
-        const res = await fetch(`${API_URL}/perfil`)
+        const res = await fetch(`${API_URL}/usuarios`)
         if (!res.ok) throw new Error(`Erro ${res.status}`)
         const data = await res.json()
         setPerfil(data)
       } catch (err) {
-        setError(err.message)
+        if (err instanceof Error) {
+          setError(err.message)
+        } else {
+          setError('Erro desconhecido')
+        }
       } finally {
         setLoading(false)
       }
@@ -34,29 +38,7 @@ export default function PerfilPage() {
     fetchPerfil()
   }, [])
 
-  if (loading) {
-    return (
-      <Box className="perfil-container">
-        <Typography>Carregando perfil…</Typography>
-      </Box>
-    )
-  }
 
-  if (error) {
-    return (
-      <Box className="perfil-container">
-        <Typography color="error">Falha ao carregar perfil: {error}</Typography>
-      </Box>
-    )
-  }
-
-  if (!perfil) {
-    return (
-      <Box className="perfil-container">
-        <Typography>Perfil não encontrado.</Typography>
-      </Box>
-    )
-  }
 
   return (
     <Box className="perfil-container">
@@ -64,7 +46,7 @@ export default function PerfilPage() {
       <Box className="perfil-content">
         <Header
           title="Perfil"
-          avatar={perfil.nome.charAt(0)}
+          avatar={perfil ? perfil.nome.charAt(0) : ''}
           config={false}
           onMenuClick={() => setSidebarOpen(!sidebarOpen)}
         />
@@ -76,22 +58,22 @@ export default function PerfilPage() {
                 Perfil
               </Typography>
 
-              <Avatar className="perfil-avatar">{perfil.nome.charAt(0)}</Avatar>
+              <Avatar className="perfil-avatar">{perfil ? perfil.nome.charAt(0) : ''}</Avatar>
               <Typography variant="body2" color="textSecondary" className="perfil-avatar-label">
                 Avatar
               </Typography>
 
               <Typography className="perfil-info">
-                <strong>Nome:</strong> {perfil.nome}
+                <strong>Nome:</strong> {perfil ? perfil.nome : ''}
               </Typography>
 
               <Typography className="perfil-info">
-                <strong>Email:</strong> {perfil.email}
+                <strong>Email:</strong> {perfil ? perfil.email : ''}
               </Typography>
 
               <Typography className="perfil-info">
                 <strong>Data de Nascimento:</strong>{' '}
-                {new Date(perfil.nascimento).toLocaleDateString('pt-BR')}
+                {perfil ? new Date(perfil.nascimento).toLocaleDateString('pt-BR') : ''}
               </Typography>
 
               <Button
@@ -99,6 +81,7 @@ export default function PerfilPage() {
                 fullWidth
                 className="perfil-editar-button"
                 href="/ConfiguracoesPerfil"
+                disabled={!perfil}
               >
                 Editar Informações
               </Button>

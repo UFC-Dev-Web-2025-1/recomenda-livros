@@ -102,137 +102,137 @@
     }
   ],
   "livros": [
-  {
-    "id": "1",
-    "title": "A Hora é da Estrela",
-    "author": "Clarice Lispector",
-    "coverSrc": "/clarice-book.png",
-    "rating": 4.5,
-    "completionPercentage": 100,
-    "totalPaginas": 96,
-    "paginasLidas": 96,
-    "genre": "Ficção",
-    "popularidade": 5,
-    "sinopse": "Uma narrativa profunda sobre a vida de Macabéa..."
-  },
-  {
-    "id": "2",
-    "title": "O Hobbit",
-    "author": "J.R.R Tolkien",
-    "coverSrc": "https://covers.openlibrary.org/b/id/6979861-L.jpg",
-    "rating": 5,
-    "completionPercentage": 90,
-    "totalPaginas": 310,
-    "paginasLidas": 279,
-    "genre": "Fantasia",
-    "popularidade": 4,
-    "sinopse": "Uma aventura épica pela Terra Média."
-  },
-  {
-    "id": "3",
-    "title": "1984",
-    "author": "George Orwell",
-    "coverSrc": "https://covers.openlibrary.org/b/id/7222246-L.jpg",
-    "rating": 4.8,
-    "completionPercentage": 85,
-    "totalPaginas": 328,
-    "paginasLidas": 279,
-    "genre": "Ficção distópica",
-    "popularidade": 5,
-    "sinopse": "Uma distopia sobre vigilância e liberdade."
-  },
-  {
-    "id": "4",
-    "title": "Dom Casmurro",
-    "author": "Machado de Assis",
-    "coverSrc": "https://covers.openlibrary.org/b/id/11102243-L.jpg",
-    "rating": 4.6,
-    "completionPercentage": 95,
-    "totalPaginas": 256,
-    "paginasLidas": 243,
-    "genre": "Romance",
-    "popularidade": 4,
-    "sinopse": "Bentinho, Capitu e o mistério do adultério."
-  },
-  {
-    "id": "5",
-    "title": "A Revolução dos Bichos",
-    "author": "George Orwell",
-    "coverSrc": "https://covers.openlibrary.org/b/id/10423216-L.jpg",
-    "rating": 4.7,
-    "completionPercentage": 92,
-    "totalPaginas": 112,
-    "paginasLidas": 103,
-    "genre": "Sátira política",
-    "popularidade": 4,
-    "sinopse": "Animais se rebelam em uma fazenda."
-  },
-  {
-    "id": "6",
-    "title": "O Pequeno Príncipe",
-    "author": "Antoine de Saint-Exupéry",
-    "coverSrc": "https://covers.openlibrary.org/b/id/8221256-L.jpg",
-    "rating": 4.9,
-    "completionPercentage": 100,
-    "totalPaginas": 96,
-    "paginasLidas": 96,
-    "genre": "Fábula",
-    "popularidade": 5,
-    "sinopse": "Um menino vindo de outro planeta e seus ensinamentos."
-  },
-  {
-    "id": "7",
-    "title": "Senhora",
-    "author": "José de Alencar",
-    "coverSrc": "https://covers.openlibrary.org/b/id/11074423-L.jpg",
-    "rating": 4.3,
-    "completionPercentage": 80,
-    "totalPaginas": 220,
-    "paginasLidas": 176,
-    "genre": "Romance",
-    "popularidade": 3,
-    "sinopse": "Aurélia Camargo e o jogo do casamento."
-  },
-  {
-    "id": "8",
-    "title": "Harry Potter e a Pedra Filosofal",
-    "author": "J.K. Rowling",
-    "coverSrc": "https://covers.openlibrary.org/b/id/7984916-L.jpg",
-    "rating": 5,
-    "completionPercentage": 100,
-    "totalPaginas": 223,
-    "paginasLidas": 223,
-    "genre": "Fantasia",
-    "popularidade": 5,
-    "sinopse": "O início da saga de Harry Potter em Hogwarts."
-  },
-  {
-    "id": "9",
-    "title": "Memórias Póstumas de Brás Cubas",
-    "author": "Machado de Assis",
-    "coverSrc": "https://covers.openlibrary.org/b/id/11102309-L.jpg",
-    "rating": 4.7,
-    "completionPercentage": 70,
-    "totalPaginas": 208,
-    "paginasLidas": 145,
-    "genre": "Realismo",
-    "popularidade": 3,
-    "sinopse": "Uma narrativa pós-morte cheia de sarcasmo."
-  },
-  {
-    "id": "10",
-    "title": "O Alquimista",
-    "author": "Paulo Coelho",
-    "coverSrc": "https://covers.openlibrary.org/b/id/8091016-L.jpg",
-    "rating": 4.1,
-    "completionPercentage": 100,
-    "totalPaginas": 192,
-    "paginasLidas": 192,
-    "genre": "Ficção filosófica",
-    "popularidade": 4,
-    "sinopse": "Santiago busca seu destino em uma viagem de autoconhecimento."
-  }
-],
+    {
+      "id": "1",
+      "title": "A Hora é da Estrela",
+      "author": "Clarice Lispector",
+      "coverSrc": "/clarice-book.png",
+      "rating": 4.5,
+      "completionPercentage": 100,
+      "totalPaginas": 96,
+      "paginasLidas": 96,
+      "genre": "Ficção",
+      "popularidade": 5,
+      "sinopse": "Uma narrativa profunda sobre a vida de Macabéa..."
+    },
+    {
+      "id": "2",
+      "title": "O Hobbit",
+      "author": "J.R.R Tolkien",
+      "coverSrc": "https://covers.openlibrary.org/b/id/6979861-L.jpg",
+      "rating": 5,
+      "completionPercentage": 90,
+      "totalPaginas": 310,
+      "paginasLidas": 279,
+      "genre": "Fantasia",
+      "popularidade": 4,
+      "sinopse": "Uma aventura épica pela Terra Média."
+    },
+    {
+      "id": "3",
+      "title": "1984",
+      "author": "George Orwell",
+      "coverSrc": "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+      "rating": 4.8,
+      "completionPercentage": 85,
+      "totalPaginas": 328,
+      "paginasLidas": 279,
+      "genre": "Ficção distópica",
+      "popularidade": 5,
+      "sinopse": "Uma distopia sobre vigilância e liberdade."
+    },
+    {
+      "id": "4",
+      "title": "Dom Casmurro",
+      "author": "Machado de Assis",
+      "coverSrc": "https://covers.openlibrary.org/b/id/11102243-L.jpg",
+      "rating": 4.6,
+      "completionPercentage": 95,
+      "totalPaginas": 256,
+      "paginasLidas": 243,
+      "genre": "Romance",
+      "popularidade": 4,
+      "sinopse": "Bentinho, Capitu e o mistério do adultério."
+    },
+    {
+      "id": "5",
+      "title": "A Revolução dos Bichos",
+      "author": "George Orwell",
+      "coverSrc": "https://covers.openlibrary.org/b/id/10423216-L.jpg",
+      "rating": 4.7,
+      "completionPercentage": 92,
+      "totalPaginas": 112,
+      "paginasLidas": 103,
+      "genre": "Sátira política",
+      "popularidade": 4,
+      "sinopse": "Animais se rebelam em uma fazenda."
+    },
+    {
+      "id": "6",
+      "title": "O Pequeno Príncipe",
+      "author": "Antoine de Saint-Exupéry",
+      "coverSrc": "https://covers.openlibrary.org/b/id/8221256-L.jpg",
+      "rating": 4.9,
+      "completionPercentage": 100,
+      "totalPaginas": 96,
+      "paginasLidas": 96,
+      "genre": "Fábula",
+      "popularidade": 5,
+      "sinopse": "Um menino vindo de outro planeta e seus ensinamentos."
+    },
+    {
+      "id": "7",
+      "title": "Senhora",
+      "author": "José de Alencar",
+      "coverSrc": "https://covers.openlibrary.org/b/id/11074423-L.jpg",
+      "rating": 4.3,
+      "completionPercentage": 80,
+      "totalPaginas": 220,
+      "paginasLidas": 176,
+      "genre": "Romance",
+      "popularidade": 3,
+      "sinopse": "Aurélia Camargo e o jogo do casamento."
+    },
+    {
+      "id": "8",
+      "title": "Harry Potter e a Pedra Filosofal",
+      "author": "J.K. Rowling",
+      "coverSrc": "https://covers.openlibrary.org/b/id/7984916-L.jpg",
+      "rating": 5,
+      "completionPercentage": 100,
+      "totalPaginas": 223,
+      "paginasLidas": 223,
+      "genre": "Fantasia",
+      "popularidade": 5,
+      "sinopse": "O início da saga de Harry Potter em Hogwarts."
+    },
+    {
+      "id": "9",
+      "title": "Memórias Póstumas de Brás Cubas",
+      "author": "Machado de Assis",
+      "coverSrc": "https://covers.openlibrary.org/b/id/11102309-L.jpg",
+      "rating": 4.7,
+      "completionPercentage": 70,
+      "totalPaginas": 208,
+      "paginasLidas": 145,
+      "genre": "Realismo",
+      "popularidade": 3,
+      "sinopse": "Uma narrativa pós-morte cheia de sarcasmo."
+    },
+    {
+      "id": "10",
+      "title": "O Alquimista",
+      "author": "Paulo Coelho",
+      "coverSrc": "https://covers.openlibrary.org/b/id/8091016-L.jpg",
+      "rating": 4.1,
+      "completionPercentage": 100,
+      "totalPaginas": 192,
+      "paginasLidas": 192,
+      "genre": "Ficção filosófica",
+      "popularidade": 4,
+      "sinopse": "Santiago busca seu destino em uma viagem de autoconhecimento."
+    }
+  ],
   "usuarios": [
     {
       "id": "1",
@@ -372,7 +372,7 @@
       "rating": 4.2,
       "completionPercentage": 75
     },
-     {
+    {
       "id": "4",
       "title": "O Pequeno Príncipe",
       "author": "Antoine de Saint-Exupéry",
@@ -412,7 +412,12 @@
       "rating": 4.3,
       "completionPercentage": 80
     }
-
+  ],
+  "perfil": [
+    {
+      "nome": "Bom Leitor",
+      "email": "exemplo@gmail.com",
+      "nascimento": "2001-01-01"
+    }
   ]
-
 }
