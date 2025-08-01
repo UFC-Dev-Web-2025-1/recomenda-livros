@@ -9,7 +9,7 @@ import Link from 'next/link';
 export default function CadastroPage() {
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [inputData, setInputdata] = useState<{ [key: string]: any }>({});
-  
+
   const handleDataChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, type, value, checked } = event.target;
     setInputdata(prev => ({
@@ -21,12 +21,13 @@ export default function CadastroPage() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log('Dados do formulário:', inputData);
+    localStorage.setItem('userData', JSON.stringify(inputData));
+
     alert('Cadastro realizado com sucesso!');
   };
 
-  localStorage.setItem('userData', JSON.stringify(inputData));
 
-  
+
   return (
     <Box>
       <header className="navbar">
@@ -95,9 +96,9 @@ export default function CadastroPage() {
             </label>
           </div>
 
-          <input type="submit" value='Criar' className={styles.createButton}/>
-           
-          
+          <input type="submit" value='Criar' className={styles.createButton} />
+
+
           <div className={styles.registerText}>
             Já é registrado?{" "}
             <Link href="/" className={styles.registerLink}>

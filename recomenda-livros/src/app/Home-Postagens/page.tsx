@@ -9,7 +9,6 @@ import Sidebar from '@/src/components/Navigation/Slidebar';
 import BookPostCard from '@/src/components/Cards/PostagemCard/BookPostCard';
 import { env } from 'process';
 
-// 1. Defina a interface para o tipo Post
 interface Post {
   id: number;
   title: string;

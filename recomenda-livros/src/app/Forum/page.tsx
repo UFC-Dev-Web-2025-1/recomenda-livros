@@ -49,6 +49,7 @@ export default function ForumPage() {
 
   useEffect(() => {
     fetch(`${API_URL}livros`)
+    fetch(process.env.NEXT_PUBLIC_API+'livros')
       .then(res => res.json())
       .then(data => setLivros(data))
   }, [])
