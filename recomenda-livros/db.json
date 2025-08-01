@@ -350,5 +350,63 @@
       ],
       "avgReadingTime": "3h/d"
     }
+  ],
+  "minha_estante": [
+    {
+      "id": "1",
+      "title": "A Hora é da Estrela",
+      "author": "Clarice Lispector",
+      "coverSrc": "/clarice-book.png",
+      "rating": 4.5,
+      "completionPercentage": 100
+    },
+    {
+      "id": "2",
+      "title": "1984",
+      "author": "George Orwell",
+      "coverSrc": "/1984.png",
+      "rating": 4.8,
+      "completionPercentage": 100
+    },
+    {
+      "id": "3",
+      "title": "Dom Casmurro",
+      "author": "Machado de Assis",
+      "coverSrc": "/dom-casmurro.png",
+      "rating": 4.2,
+      "completionPercentage": 75
+    },
+     {
+      "id": "4",
+      "title": "O Pequeno Príncipe",
+      "author": "Antoine de Saint-Exupéry",
+      "coverSrc": "/pequeno-principe.png",
+      "rating": 4.9,
+      "completionPercentage": 100
+    },
+    {
+      "id": "5",
+      "title": "Cem Anos de Solidão",
+      "author": "Gabriel García Márquez",
+      "coverSrc": "/cem-anos.png",
+      "rating": 4.7,
+      "completionPercentage": 60
+    },
+    {
+      "id": "6",
+      "title": "O Alquimista",
+      "author": "Paulo Coelho",
+      "coverSrc": "/alquimista.png",
+      "rating": 4.0,
+      "completionPercentage": 90
+    },
+    {
+      "id": "8",
+      "title": "Orgulho e Preconceito",
+      "author": "Jane Austen",
+      "coverSrc": "/orgulho-preconceito.png",
+      "rating": 4.6,
+      "completionPercentage": 45
+    }
   ]
 }
