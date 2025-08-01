@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Box,
   Button,
@@ -15,8 +15,13 @@ import {
 import Header from '../../components/Layout/Header/Header'
 import Sidebar from '../../components/Navigation/Slidebar'
 
+interface Livro {
+  id: number;
+  title: string;
+}
+
 interface Post {
-  id: string;
+  id?: number;
   author: string;
   text: string;
   genre: string;
@@ -29,33 +34,51 @@ export default function ForumPage() {
   const [selectedGenre, setSelectedGenre] = useState('')
   const [selectedBook, setSelectedBook] = useState('')
   const [posts, setPosts] = useState<Post[]>([])
-  console.log('Posts atuais:', posts)
-
+  const [livros, setLivros] = useState<Livro[]>([])
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
+  useEffect(() => {
+    fetch('http://localhost:4000/forum')
+      .then(res => res.json())
+      .then(data => setPosts(data.reverse()))
+      .catch(err => console.error('Erro ao buscar tópicos:', err));
+  }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/livros')
+      .then(res => res.json())
+      .then(data => setLivros(data))
+      .catch(err => console.error('Erro ao buscar livros:', err));
+  }, []);
+
   const publicar = () => {
-  if (!input.trim() || !selectedGenre || !selectedBook) {
-    console.log('Dados incompletos. Não publicou.')
-    return
+    if (!input.trim() || !selectedGenre || !selectedBook) {
+      console.log('Dados incompletos. Não publicou.')
+      return
+    }
+
+    const novoPost: Omit<Post, 'id'> = {
+      author: 'Você',
+      text: input,
+      genre: selectedGenre,
+      book: selectedBook,
+      date: new Date().toLocaleDateString('pt-BR'),
+    }
+
+    fetch('http://localhost:4000/forum', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(novoPost)
+    })
+      .then(res => res.json())
+      .then(data => {
+        setPosts(prev => [data, ...prev])
+        setInput('')
+        setSelectedGenre('')
+        setSelectedBook('')
+      })
+      .catch(err => console.error('Erro ao publicar tópico:', err));
   }
-
-  const novoPost: Post = {
-    id: Date.now().toString(),
-    author: 'Você',
-    text: input,
-    genre: selectedGenre,
-    book: selectedBook,
-    date: new Date().toLocaleDateString('pt-BR'),
-  }
-
-  console.log('Post criado:', novoPost) 
-
-  setPosts((prevPosts) => [novoPost, ...prevPosts])
-  setInput('')
-  setSelectedGenre('')
-  setSelectedBook('')
-}
-
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
@@ -95,6 +118,8 @@ export default function ForumPage() {
                 <MenuItem value="Ficção">Ficção</MenuItem>
                 <MenuItem value="Fantasia">Fantasia</MenuItem>
                 <MenuItem value="Biografia">Biografia</MenuItem>
+                <MenuItem value="Literatura fantástica">Literatura fantástica</MenuItem>
+                <MenuItem value="Ficção distópica">Ficção distópica</MenuItem>
               </Select>
 
               <Select
@@ -104,9 +129,9 @@ export default function ForumPage() {
                 onChange={(e) => setSelectedBook(e.target.value)}
               >
                 <MenuItem value="" disabled>Livro</MenuItem>
-                <MenuItem value="1984">1984</MenuItem>
-                <MenuItem value="O Hobbit">O Hobbit</MenuItem>
-                <MenuItem value="Dom Casmurro">Dom Casmurro</MenuItem>
+                {livros.map((livro) => (
+                  <MenuItem key={livro.id} value={livro.title}>{livro.title}</MenuItem>
+                ))}
               </Select>
             </Box>
 
@@ -119,10 +144,13 @@ export default function ForumPage() {
             </Button>
           </Card>
 
-          {/* Lista de posts */}
-            <Box>
-              <Typography variant="h6" gutterBottom>Tópicos Recentes</Typography>
-              {posts.map((post) => (
+          {/* Lista de tópicos */}
+          <Box>
+            <Typography variant="h6" gutterBottom>Tópicos Recentes</Typography>
+            {posts.length === 0 ? (
+              <Typography>Nenhum tópico ainda.</Typography>
+            ) : (
+              posts.map((post) => (
                 <Card key={post.id} variant="outlined" sx={{ mb: 2 }}>
                   <CardContent>
                     <Typography variant="subtitle2" color="text.secondary">
@@ -137,9 +165,9 @@ export default function ForumPage() {
                     </Typography>
                   </CardContent>
                 </Card>
-              ))}
-            </Box>
-          
+              ))
+            )}
+          </Box>
         </Box>
       </Box>
     </Box>
