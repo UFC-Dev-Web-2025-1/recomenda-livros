@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 interface BookPostCardProps {
   post: {
-    id: string;
+    id: number;
     title: string;
     author: string;
     genre: string;
