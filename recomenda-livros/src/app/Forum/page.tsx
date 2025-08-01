@@ -38,14 +38,14 @@ export default function ForumPage() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
   useEffect(() => {
-    fetch('http://localhost:4000/forum')
+    fetch(process.env.NEXT_PUBLIC_API+'forum')
       .then(res => res.json())
       .then(data => setPosts(data.reverse()))
       .catch(err => console.error('Erro ao buscar tópicos:', err));
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:4000/livros')
+    fetch(process.env.NEXT_PUBLIC_API+'livros')
       .then(res => res.json())
       .then(data => setLivros(data))
       .catch(err => console.error('Erro ao buscar livros:', err));
@@ -65,7 +65,7 @@ export default function ForumPage() {
       date: new Date().toLocaleDateString('pt-BR'),
     }
 
-    fetch('http://localhost:4000/forum', {
+    fetch(process.env.NEXT_PUBLIC_API+'forum', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(novoPost)
