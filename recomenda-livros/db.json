@@ -232,8 +232,7 @@
     "popularidade": 4,
     "sinopse": "Santiago busca seu destino em uma viagem de autoconhecimento."
   }
-]
-,
+],
   "usuarios": [
     {
       "id": "1",
@@ -325,17 +324,8 @@
       "date": "10/08/2025"
     }
   ],
-  "estatisticas": [
-    {
-      "id": "1",
-      "totalBooksRead": 25,
-      "readingStreak": 13,
-      "topGenres": [
-        "Romance",
-        "Fantasia",
-        "Suspense"
-      ],
-      "pagesPerMonth": [
+
+    "pagesPerMonth": [
         {
           "month": "Jan",
           "pages": 800
@@ -421,12 +411,22 @@
       "completionPercentage": 90
     },
     {
-      "id": "8",
+      "id": "7",
       "title": "Orgulho e Preconceito",
       "author": "Jane Austen",
       "coverSrc": "/orgulho-preconceito.png",
       "rating": 4.6,
       "completionPercentage": 45
+    },
+    {
+      "id": "8",
+      "title": "Senhora",
+      "author": "José de Alencar",
+      "coverSrc": "/senhora.png",
+      "rating": 4.3,
+      "completionPercentage": 80
     }
+
   ]
+
 }
