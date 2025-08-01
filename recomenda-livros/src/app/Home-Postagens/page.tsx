@@ -1,41 +1,54 @@
+// recomenda-livros/src/app/Home-Postagens/page.tsx
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Home.module.css';
 import Header from '@/src/components/Layout/Header/Header';
 import { Box } from '@mui/material';
 import Sidebar from '@/src/components/Navigation/Slidebar';
 import BookPostCard from '@/src/components/Cards/PostagemCard/BookPostCard';
+import { env } from 'process';
+
+// 1. Defina a interface para o tipo Post
+interface Post {
+  id: number;
+  title: string;
+  author: string;
+  genre: string;
+  publishedYear: number;
+  description: string;
+  postAuthor: string;
+  coverSrc: string;
+}
 
 export default function HomePostagensPage() {
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true); 
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  // 2. Tipagem correta do useState
+  const [posts, setPosts] = useState<Post[]>([]);
 
   const handleMenuToggle = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
 
-  const posts = [
-    {
-      id: '1',
-      title: 'O Hoobbit',
-      author: 'J.R.R Tolkien',
-      genre: 'Literatura fantástica',
-      publishedYear: 1949,
-      description: 'Uma jornada mágica e envolvente pela Terra-Média. Estou relendo "O Hobbit" agora e ainda me encanto com o espírito aventureiro de Bilbo, que sai de seu confortável lar para enfrentar trolls, elfos e o terrível Smaug. Cada capítulo é repleto de humor sutil e descritivo que me transportam para montanhas nevadas e florestas mágicas. Não tem como não sorrir as aventuras dos anões e se emocionar com a coragem improvável de um hobbit. Adoro como Tolkien mistura fantasia épica e amizade verdadeira; simplesmente não consigo largar este livro!',
-      postAuthor: 'Jonas R.',
-      coverSrc: '/Hoobbit.png',
-    },
-    {
-      id: '2',
-      title: '1984',
-      author: 'George Orwell',
-      genre: 'Ficção distópica',
-      publishedYear: 1949,
-      description: 'Um alerta arrepiante e atemporal sobre o controle governamental. Estou lendo "1984" neste exato momento e não consigo deixar de me arrepiar a cada página - a forma como Orwell descreve a vigilância constante me deixou de queixo caído. Já nas primeiras páginas, percebi o quão perturbadora é a capacidade do Estado de manipular a verdade e de moldar pensamentos. Sem dúvida, estou gostando muito da profundidade dos personagens e da tensão crescente; é um livro que prende e faz questionar até onde poderíamos permitir que nosso próprio governo vá.',
-      postAuthor: 'Sarah M.',
-      coverSrc: '/1984.png',
-    },
-  ];
+ useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API + 'posts'; 
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+        const formattedData = data.map((post: any) => ({
+          ...post,
+          id: String(post.id),
+        }));
+
+        setPosts(formattedData);
+      } catch (error) {
+        console.error("Falha ao buscar os posts:", error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f5f7fa' }}>
@@ -46,10 +59,9 @@ export default function HomePostagensPage() {
           flexGrow: 1,
           display: 'flex',
           flexDirection: 'column',
-
           marginLeft: isSidebarVisible ? '' : '0px',
           transition: 'margin-left 0.3s ease-in-out',
-          width: isSidebarVisible ? 'calc(100% - 250px)' : '100%', 
+          width: isSidebarVisible ? 'calc(100% - 250px)' : '100%',
         }}
       >
         <Header title="Home" avatar="A" config={true} onMenuClick={handleMenuToggle} />

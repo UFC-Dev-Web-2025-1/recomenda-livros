@@ -1,0 +1,59 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "O Hobbit",
+      "author": "J.R.R Tolkien",
+      "genre": "Literatura fantástica",
+      "publishedYear": 1949,
+      "description": "Uma jornada mágica e envolvente...",
+      "postAuthor": "Jonas R.",
+      "coverSrc": "/Hoobbit.png"
+    }
+  ],
+  "livros": [
+    {
+      "id": 1,
+      "title": "A Hora é da Estrela",
+      "author": "Clarice Lispector",
+      "coverSrc": "/clarice-book.png",
+      "rating": 4.5,
+      "completionPercentage": 100,
+      "genre": "Ficção",
+      "popularidade": 5,
+      "sinopse": "Uma narrativa profunda sobre a vida de Macabéa..."
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Bom Leitor",
+      "email": "exemplo@gmail.com",
+      "nascimento": "2001-01-01",
+      "senha": "senha123"
+    }
+  ],
+  "forum": [
+    {
+      "id": 1,
+      "author": "Você",
+      "text": "O que acharam do final de 1984?",
+      "genre": "Ficção distópica",
+      "book": "1984",
+      "date": "01/08/2025"
+    }
+  ],
+  "estatisticas": [
+    {
+      "id": 1,
+      "totalBooksRead": 25,
+      "readingStreak": 13,
+      "topGenres": ["Romance", "Fantasia", "Suspense"],
+      "pagesPerMonth": [
+        {"month": "Jan", "pages": 800},
+        {"month": "Fev", "pages": 600}
+      ],
+      "avgReadingTime": "3h/d"
+    }
+  ]
+}
