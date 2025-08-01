@@ -401,12 +401,17 @@
       "completionPercentage": 90
     },
     {
-      "id": "8",
+      "id": "7",
       "title": "Orgulho e Preconceito",
       "author": "Jane Austen",
       "coverSrc": "/orgulho-preconceito.png",
       "rating": 4.6,
       "completionPercentage": 45
     }
-  ]
+  ],
+  "perfil": {
+    "nome": "Bom Leitor",
+    "email": "exemplo@gmail.com",
+    "nascimento": "2001-01-01"
+  }
 }
