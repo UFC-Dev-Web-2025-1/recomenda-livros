@@ -407,6 +407,14 @@
       "coverSrc": "/orgulho-preconceito.png",
       "rating": 4.6,
       "completionPercentage": 45
+    },
+    {
+      "id": "8",
+      "title": "Senhora",
+      "author": "José de Alencar",
+      "coverSrc": "/senhora.png",
+      "rating": 4.3,
+      "completionPercentage": 80
     }
   ],
   "perfil": {
