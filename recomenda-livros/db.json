@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "O Hobbit",
       "author": "J.R.R Tolkien",
       "genre": "Literatura fantástica",
@@ -13,7 +13,7 @@
   ],
   "livros": [
     {
-      "id": 1,
+      "id": "1",
       "title": "A Hora é da Estrela",
       "author": "Clarice Lispector",
       "coverSrc": "/clarice-book.png",
@@ -26,7 +26,7 @@
   ],
   "usuarios": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Bom Leitor",
       "email": "exemplo@gmail.com",
       "nascimento": "2001-01-01",
@@ -35,23 +35,41 @@
   ],
   "forum": [
     {
-      "id": 1,
+      "id": "1",
       "author": "Você",
       "text": "O que acharam do final de 1984?",
       "genre": "Ficção distópica",
       "book": "1984",
       "date": "01/08/2025"
+    },
+    {
+      "id": "dd71",
+      "author": "Você",
+      "text": "fjidjfdf",
+      "genre": "Fantasia",
+      "book": "A Hora é da Estrela",
+      "date": "01/08/2025"
     }
   ],
   "estatisticas": [
     {
-      "id": 1,
+      "id": "1",
       "totalBooksRead": 25,
       "readingStreak": 13,
-      "topGenres": ["Romance", "Fantasia", "Suspense"],
+      "topGenres": [
+        "Romance",
+        "Fantasia",
+        "Suspense"
+      ],
       "pagesPerMonth": [
-        {"month": "Jan", "pages": 800},
-        {"month": "Fev", "pages": 600}
+        {
+          "month": "Jan",
+          "pages": 800
+        },
+        {
+          "month": "Fev",
+          "pages": 600
+        }
       ],
       "avgReadingTime": "3h/d"
     }
