@@ -6,27 +6,54 @@ import Sidebar from '../../components/Navigation/Slidebar'
 import { useState, useEffect } from 'react'
 import './layout.css'
 
-const API_URL = process.env.NEXT_PUBLIC_API
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 export default function PerfilPage() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
-  const [perfil, setPerfil] = useState(null)
+  const [perfil, setPerfil] = useState<{
+    nome: string,
+    email: string,
+    nascimento: string
+  } | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch(`${API_URL}usuarios`)
-      .then(res => res.json())
-      .then(data => {
-        setPerfil(data[0])
-      })
-      .catch(error => {
-        console.error('Erro ao carregar perfil:', error)
-      })
+    async function fetchPerfil() {
+      try {
+        const res = await fetch(`${API_URL}/perfil`)
+        if (!res.ok) throw new Error(`Erro ${res.status}`)
+        const data = await res.json()
+        setPerfil(data)
+      } catch (err) {
+        setError(err.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchPerfil()
   }, [])
+
+  if (loading) {
+    return (
+      <Box className="perfil-container">
+        <Typography>Carregando perfil…</Typography>
+      </Box>
+    )
+  }
+
+  if (error) {
+    return (
+      <Box className="perfil-container">
+        <Typography color="error">Falha ao carregar perfil: {error}</Typography>
+      </Box>
+    )
+  }
 
   if (!perfil) {
     return (
       <Box className="perfil-container">
-        <Typography>Carregando perfil...</Typography>
+        <Typography>Perfil não encontrado.</Typography>
       </Box>
     )
   }
