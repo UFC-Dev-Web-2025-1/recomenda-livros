@@ -10,24 +10,28 @@ import {
   MenuItem,
   Select,
   TextField,
-  Typography
+  Typography,
+  Avatar
 } from '@mui/material'
 import Header from '../../components/Layout/Header/Header'
 import Sidebar from '../../components/Navigation/Slidebar'
 
 interface Livro {
-  id: number;
-  title: string;
+  id: number | string
+  title: string
+  coverSrc: string
 }
 
 interface Post {
-  id?: number;
-  author: string;
-  text: string;
-  genre: string;
-  book: string;
-  date: string;
+  id?: number | string
+  author: string
+  text: string
+  genre: string
+  book: string
+  date: string
 }
+
+const API_URL = process.env.NEXT_PUBLIC_API
 
 export default function ForumPage() {
   const [input, setInput] = useState('')
@@ -38,22 +42,19 @@ export default function ForumPage() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
   useEffect(() => {
-    fetch('http://localhost:4000/forum')
+    fetch(`${API_URL}forum`)
       .then(res => res.json())
       .then(data => setPosts(data.reverse()))
-      .catch(err => console.error('Erro ao buscar tópicos:', err));
-  }, []);
+  }, [])
 
   useEffect(() => {
-    fetch('http://localhost:4000/livros')
+    fetch(`${API_URL}livros`)
       .then(res => res.json())
       .then(data => setLivros(data))
-      .catch(err => console.error('Erro ao buscar livros:', err));
-  }, []);
+  }, [])
 
   const publicar = () => {
     if (!input.trim() || !selectedGenre || !selectedBook) {
-      console.log('Dados incompletos. Não publicou.')
       return
     }
 
@@ -65,7 +66,7 @@ export default function ForumPage() {
       date: new Date().toLocaleDateString('pt-BR'),
     }
 
-    fetch('http://localhost:4000/forum', {
+    fetch(`${API_URL}forum`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(novoPost)
@@ -77,13 +78,11 @@ export default function ForumPage() {
         setSelectedGenre('')
         setSelectedBook('')
       })
-      .catch(err => console.error('Erro ao publicar tópico:', err));
   }
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
       <Sidebar isVisible={sidebarOpen} onLinkClick={() => setSidebarOpen(false)} />
-
       <Box sx={{ flexGrow: 1 }}>
         <Header
           title="Fórum"
@@ -91,10 +90,8 @@ export default function ForumPage() {
           config={false}
           onMenuClick={() => setSidebarOpen(!sidebarOpen)}
         />
-
         <Box sx={{ maxWidth: 900, mx: 'auto', mt: 4, px: 2 }}>
           <Typography variant="h4" gutterBottom>Fórum de Discussões</Typography>
-
           <Card variant="outlined" sx={{ p: 3, mb: 4 }}>
             <Typography variant="h6" gutterBottom>Criar novo tópico</Typography>
             <TextField
@@ -106,7 +103,6 @@ export default function ForumPage() {
               onChange={(e) => setInput(e.target.value)}
               sx={{ mb: 2 }}
             />
-
             <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
               <Select
                 fullWidth
@@ -121,7 +117,6 @@ export default function ForumPage() {
                 <MenuItem value="Literatura fantástica">Literatura fantástica</MenuItem>
                 <MenuItem value="Ficção distópica">Ficção distópica</MenuItem>
               </Select>
-
               <Select
                 fullWidth
                 displayEmpty
@@ -134,7 +129,6 @@ export default function ForumPage() {
                 ))}
               </Select>
             </Box>
-
             <Button
               variant="contained"
               color="primary"
@@ -143,29 +137,40 @@ export default function ForumPage() {
               Publicar
             </Button>
           </Card>
-
-          {/* Lista de tópicos */}
           <Box>
             <Typography variant="h6" gutterBottom>Tópicos Recentes</Typography>
             {posts.length === 0 ? (
               <Typography>Nenhum tópico ainda.</Typography>
             ) : (
-              posts.map((post) => (
-                <Card key={post.id} variant="outlined" sx={{ mb: 2 }}>
-                  <CardContent>
-                    <Typography variant="subtitle2" color="text.secondary">
-                      Postado por {post.author} · {post.date}
-                    </Typography>
-                    <Typography variant="body1" sx={{ my: 1 }}>
-                      {post.text}
-                    </Typography>
-                    <Divider sx={{ my: 1 }} />
-                    <Typography variant="body2">
-                      <strong>Gênero:</strong> {post.genre} · <strong>Livro:</strong> {post.book}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              ))
+              posts.map((post) => {
+                const livro = livros.find(l => l.title === post.book)
+                return (
+                  <Card key={post.id} variant="outlined" sx={{ mb: 2, display: 'flex', alignItems: 'center' }}>
+                    {livro && (
+                      <Box sx={{ minWidth: 60, mr: 2, display: 'flex', justifyContent: 'center' }}>
+                        <Avatar
+                          src={livro.coverSrc}
+                          alt={livro.title}
+                          sx={{ width: 56, height: 80, borderRadius: 2, boxShadow: 2 }}
+                          variant="square"
+                        />
+                      </Box>
+                    )}
+                    <CardContent sx={{ flex: 1 }}>
+                      <Typography variant="subtitle2" color="text.secondary">
+                        Postado por {post.author} · {post.date}
+                      </Typography>
+                      <Typography variant="body1" sx={{ my: 1 }}>
+                        {post.text}
+                      </Typography>
+                      <Divider sx={{ my: 1 }} />
+                      <Typography variant="body2">
+                        <strong>Gênero:</strong> {post.genre} · <strong>Livro:</strong> {post.book}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                )
+              })
             )}
           </Box>
         </Box>

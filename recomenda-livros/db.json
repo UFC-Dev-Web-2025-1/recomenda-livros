@@ -8,7 +8,97 @@
       "publishedYear": 1949,
       "description": "Uma jornada mágica e envolvente...",
       "postAuthor": "Jonas R.",
-      "coverSrc": "/Hoobbit.png"
+      "coverSrc": "https://covers.openlibrary.org/b/id/6979861-L.jpg"
+    },
+    {
+      "id": "2",
+      "title": "1984",
+      "author": "George Orwell",
+      "genre": "Ficção distópica",
+      "publishedYear": 1949,
+      "description": "Uma crítica ao totalitarismo...",
+      "postAuthor": "Maria S.",
+      "coverSrc": "https://covers.openlibrary.org/b/id/7222246-L.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Dom Casmurro",
+      "author": "Machado de Assis",
+      "genre": "Romance",
+      "publishedYear": 1899,
+      "description": "O ciúme de Bentinho e Capitu...",
+      "postAuthor": "Carlos A.",
+      "coverSrc": "https://covers.openlibrary.org/b/id/11102243-L.jpg"
+    },
+    {
+      "id": "4",
+      "title": "A Revolução dos Bichos",
+      "author": "George Orwell",
+      "genre": "Sátira política",
+      "publishedYear": 1945,
+      "description": "Uma sátira sobre o poder e corrupção.",
+      "postAuthor": "Joana P.",
+      "coverSrc": "https://covers.openlibrary.org/b/id/10423216-L.jpg"
+    },
+    {
+      "id": "5",
+      "title": "O Pequeno Príncipe",
+      "author": "Antoine de Saint-Exupéry",
+      "genre": "Fábula",
+      "publishedYear": 1943,
+      "description": "Uma história sensível sobre amizade.",
+      "postAuthor": "Pedro L.",
+      "coverSrc": "https://covers.openlibrary.org/b/id/8221256-L.jpg"
+    },
+    {
+      "id": "6",
+      "title": "A Hora da Estrela",
+      "author": "Clarice Lispector",
+      "genre": "Ficção",
+      "publishedYear": 1977,
+      "description": "A trajetória de Macabéa.",
+      "postAuthor": "Ana P.",
+      "coverSrc": "https://covers.openlibrary.org/b/id/8281996-L.jpg"
+    },
+    {
+      "id": "7",
+      "title": "Senhora",
+      "author": "José de Alencar",
+      "genre": "Romance",
+      "publishedYear": 1875,
+      "description": "A história de Aurélia Camargo.",
+      "postAuthor": "Lucas T.",
+      "coverSrc": "https://covers.openlibrary.org/b/id/11074423-L.jpg"
+    },
+    {
+      "id": "8",
+      "title": "Harry Potter e a Pedra Filosofal",
+      "author": "J.K. Rowling",
+      "genre": "Fantasia",
+      "publishedYear": 1997,
+      "description": "O início da saga de Harry Potter.",
+      "postAuthor": "Beatriz F.",
+      "coverSrc": "https://covers.openlibrary.org/b/id/7984916-L.jpg"
+    },
+    {
+      "id": "9",
+      "title": "Memórias Póstumas de Brás Cubas",
+      "author": "Machado de Assis",
+      "genre": "Realismo",
+      "publishedYear": 1881,
+      "description": "A vida (e morte) de Brás Cubas.",
+      "postAuthor": "Rafael S.",
+      "coverSrc": "https://covers.openlibrary.org/b/id/11102309-L.jpg"
+    },
+    {
+      "id": "10",
+      "title": "O Alquimista",
+      "author": "Paulo Coelho",
+      "genre": "Ficção filosófica",
+      "publishedYear": 1988,
+      "description": "A busca de Santiago por um tesouro.",
+      "postAuthor": "Fernanda G.",
+      "coverSrc": "https://covers.openlibrary.org/b/id/8091016-L.jpg"
     }
   ],
   "livros": [
@@ -22,8 +112,108 @@
       "genre": "Ficção",
       "popularidade": 5,
       "sinopse": "Uma narrativa profunda sobre a vida de Macabéa..."
-    }
-  ],
+    },
+  {
+    "id": "2",
+    "title": "O Hobbit",
+    "author": "J.R.R Tolkien",
+    "coverSrc": "https://covers.openlibrary.org/b/id/6979861-L.jpg",
+    "rating": 5,
+    "completionPercentage": 90,
+    "genre": "Fantasia",
+    "popularidade": 4,
+    "sinopse": "Uma aventura épica pela Terra Média."
+  },
+  {
+    "id": "3",
+    "title": "1984",
+    "author": "George Orwell",
+    "coverSrc": "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+    "rating": 4.8,
+    "completionPercentage": 85,
+    "genre": "Ficção distópica",
+    "popularidade": 5,
+    "sinopse": "Uma distopia sobre vigilância e liberdade."
+  },
+  {
+    "id": "4",
+    "title": "Dom Casmurro",
+    "author": "Machado de Assis",
+    "coverSrc": "https://covers.openlibrary.org/b/id/11102243-L.jpg",
+    "rating": 4.6,
+    "completionPercentage": 95,
+    "genre": "Romance",
+    "popularidade": 4,
+    "sinopse": "Bentinho, Capitu e o mistério do adultério."
+  },
+  {
+    "id": "5",
+    "title": "A Revolução dos Bichos",
+    "author": "George Orwell",
+    "coverSrc": "https://covers.openlibrary.org/b/id/10423216-L.jpg",
+    "rating": 4.7,
+    "completionPercentage": 92,
+    "genre": "Sátira política",
+    "popularidade": 4,
+    "sinopse": "Animais se rebelam em uma fazenda."
+  },
+  {
+    "id": "6",
+    "title": "O Pequeno Príncipe",
+    "author": "Antoine de Saint-Exupéry",
+    "coverSrc": "https://covers.openlibrary.org/b/id/8221256-L.jpg",
+    "rating": 4.9,
+    "completionPercentage": 100,
+    "genre": "Fábula",
+    "popularidade": 5,
+    "sinopse": "Um menino vindo de outro planeta e seus ensinamentos."
+  },
+  {
+    "id": "7",
+    "title": "Senhora",
+    "author": "José de Alencar",
+    "coverSrc": "https://covers.openlibrary.org/b/id/11074423-L.jpg",
+    "rating": 4.3,
+    "completionPercentage": 80,
+    "genre": "Romance",
+    "popularidade": 3,
+    "sinopse": "Aurélia Camargo e o jogo do casamento."
+  },
+  {
+    "id": "8",
+    "title": "Harry Potter e a Pedra Filosofal",
+    "author": "J.K. Rowling",
+    "coverSrc": "https://covers.openlibrary.org/b/id/7984916-L.jpg",
+    "rating": 5,
+    "completionPercentage": 100,
+    "genre": "Fantasia",
+    "popularidade": 5,
+    "sinopse": "O início da saga de Harry Potter em Hogwarts."
+  },
+  {
+    "id": "9",
+    "title": "Memórias Póstumas de Brás Cubas",
+    "author": "Machado de Assis",
+    "coverSrc": "https://covers.openlibrary.org/b/id/11102309-L.jpg",
+    "rating": 4.7,
+    "completionPercentage": 70,
+    "genre": "Realismo",
+    "popularidade": 3,
+    "sinopse": "Uma narrativa pós-morte cheia de sarcasmo."
+  },
+  {
+    "id": "10",
+    "title": "O Alquimista",
+    "author": "Paulo Coelho",
+    "coverSrc": "https://covers.openlibrary.org/b/id/8091016-L.jpg",
+    "rating": 4.1,
+    "completionPercentage": 100,
+    "genre": "Ficção filosófica",
+    "popularidade": 4,
+    "sinopse": "Santiago busca seu destino em uma viagem de autoconhecimento."
+  }
+],
+
   "usuarios": [
     {
       "id": "1",
@@ -43,12 +233,99 @@
       "date": "01/08/2025"
     },
     {
-      "id": "dd71",
-      "author": "Você",
-      "text": "fjidjfdf",
+      "id": "2",
+      "author": "Maria",
+      "text": "Alguém indica livros parecidos com 'O Hobbit'?",
       "genre": "Fantasia",
+      "book": "O Hobbit",
+      "date": "02/08/2025"
+    },
+    {
+      "id": "3",
+      "author": "Carlos",
+      "text": "Dom Casmurro realmente traiu? O que vocês acham?",
+      "genre": "Romance",
+      "book": "Dom Casmurro",
+      "date": "03/08/2025"
+    },
+    {
+      "id": "4",
+      "author": "Fernanda",
+      "text": "Qual o melhor livro do Machado de Assis?",
+      "genre": "Realismo",
+      "book": "Memórias Póstumas de Brás Cubas",
+      "date": "04/08/2025"
+    },
+    {
+      "id": "5",
+      "author": "Lucas",
+      "text": "Recomendações de distopias além de 1984?",
+      "genre": "Ficção distópica",
+      "book": "1984",
+      "date": "05/08/2025"
+    },
+    {
+      "id": "6",
+      "author": "Ana",
+      "text": "Leu 'A Hora é da Estrela'? Qual sua impressão?",
+      "genre": "Ficção",
       "book": "A Hora é da Estrela",
-      "date": "01/08/2025"
+      "date": "06/08/2025"
+    },
+    {
+      "id": "7",
+      "author": "João",
+      "text": "Vale a pena ler 'O Alquimista'?",
+      "genre": "Ficção filosófica",
+      "book": "O Alquimista",
+      "date": "07/08/2025"
+    },
+    {
+      "id": "8",
+      "author": "Beatriz",
+      "text": "Como entender melhor 'Senhora', do Alencar?",
+      "genre": "Romance",
+      "book": "Senhora",
+      "date": "08/08/2025"
+    },
+    {
+      "id": "9",
+      "author": "Rafael",
+      "text": "Qual seu personagem favorito de Harry Potter?",
+      "genre": "Fantasia",
+      "book": "Harry Potter e a Pedra Filosofal",
+      "date": "09/08/2025"
+    },
+    {
+      "id": "10",
+      "author": "Sofia",
+      "text": "O Pequeno Príncipe é para crianças ou adultos?",
+      "genre": "Fábula",
+      "book": "O Pequeno Príncipe",
+      "date": "10/08/2025"
+    }
+  ],
+  "estatisticas": [
+    {
+      "id": "1",
+      "totalBooksRead": 25,
+      "readingStreak": 13,
+      "topGenres": [
+        "Romance",
+        "Fantasia",
+        "Suspense"
+      ],
+      "pagesPerMonth": [
+        {
+          "month": "Jan",
+          "pages": 800
+        },
+        {
+          "month": "Fev",
+          "pages": 600
+        }
+      ],
+      "avgReadingTime": "3h/d"
     }
   ],
   "estatisticas": [
