@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             width: isSidebarVisible ? 'calc(100% - 250px)' : '100%',
           }}
         >
-          <Header title="Minha Estante" avatar="A" onMenuClick={handleMenuToggle} />
+          <Header title="Atualizar Livro" avatar="A" config={false} onMenuClick={handleMenuToggle} />
           <body>
             {children}
             <Footer />
