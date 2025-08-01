@@ -324,20 +324,6 @@
       "date": "10/08/2025"
     }
   ],
-
-    "pagesPerMonth": [
-        {
-          "month": "Jan",
-          "pages": 800
-        },
-        {
-          "month": "Fev",
-          "pages": 600
-        }
-      ],
-      "avgReadingTime": "3h/d"
-    }
-  ],
   "estatisticas": [
     {
       "id": "1",
