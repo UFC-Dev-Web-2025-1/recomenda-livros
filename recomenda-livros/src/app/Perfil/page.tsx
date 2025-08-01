@@ -6,7 +6,7 @@ import Sidebar from '../../components/Navigation/Slidebar'
 import { useState, useEffect } from 'react'
 import './layout.css'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+
 
 export default function PerfilPage() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
@@ -21,10 +21,13 @@ export default function PerfilPage() {
   useEffect(() => {
     async function fetchPerfil() {
       try {
-        const res = await fetch(`${API_URL}/usuarios`)
+        const res = await fetch(process.env.NEXT_PUBLIC_API+"perfil")
+      
+
         if (!res.ok) throw new Error(`Erro ${res.status}`)
         const data = await res.json()
-        setPerfil(data)
+        console.log('Perfil carregado:', data)
+        setPerfil(data[0])
       } catch (err) {
         if (err instanceof Error) {
           setError(err.message)
@@ -46,7 +49,7 @@ export default function PerfilPage() {
       <Box className="perfil-content">
         <Header
           title="Perfil"
-          avatar={perfil ? perfil.nome.charAt(0) : ''}
+          avatar={perfil ? perfil.nome :''}
           config={false}
           onMenuClick={() => setSidebarOpen(!sidebarOpen)}
         />
@@ -58,7 +61,7 @@ export default function PerfilPage() {
                 Perfil
               </Typography>
 
-              <Avatar className="perfil-avatar">{perfil ? perfil.nome.charAt(0) : ''}</Avatar>
+              <Avatar className="perfil-avatar">{perfil ? perfil.nome: ''}</Avatar>
               <Typography variant="body2" color="textSecondary" className="perfil-avatar-label">
                 Avatar
               </Typography>
@@ -68,12 +71,12 @@ export default function PerfilPage() {
               </Typography>
 
               <Typography className="perfil-info">
-                <strong>Email:</strong> {perfil ? perfil.email : ''}
+                <strong>Email:</strong> {perfil ? perfil.email: ''}
               </Typography>
 
               <Typography className="perfil-info">
                 <strong>Data de Nascimento:</strong>{' '}
-                {perfil ? new Date(perfil.nascimento).toLocaleDateString('pt-BR') : ''}
+                {perfil ? perfil.nascimento : ''}
               </Typography>
 
               <Button
@@ -81,7 +84,6 @@ export default function PerfilPage() {
                 fullWidth
                 className="perfil-editar-button"
                 href="/ConfiguracoesPerfil"
-                disabled={!perfil}
               >
                 Editar Informações
               </Button>
