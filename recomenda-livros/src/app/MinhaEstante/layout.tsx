@@ -12,11 +12,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     setIsSidebarVisible(!isSidebarVisible);
   };
   return (
-    <html lang="pt-BR">
-      <body>
-   
-        {children}
-      </body>
-    </html>
+    <>
+      {children}
+    </>
+
+
+
   );
 }

@@ -27,7 +27,7 @@ export default function Page() {
   useEffect(() => {
     async function loadBooks() {
       try {
-        const res = await fetch('http://localhost:3001/books');
+        const res = await fetch(process.env.NEXT_PUBLIC_API+'livros');
         if (!res.ok) throw new Error(`Status ${res.status}`);
         const data: Book[] = await res.json();
         setBooks(data);
