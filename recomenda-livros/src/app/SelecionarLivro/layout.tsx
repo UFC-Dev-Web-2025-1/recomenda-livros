@@ -25,7 +25,6 @@ export default function SelecionarLivroLayout({
 
     <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f5f7fa' }}>
 
-      <html lang="pt-BR">
         <Sidebar isVisible={isSidebarVisible} onLinkClick={handleMenuToggle} />
         <Box
           sx={{
@@ -43,7 +42,6 @@ export default function SelecionarLivroLayout({
             <Footer />
           </body>
         </Box>
-      </html>
     </Box>
   
   );
