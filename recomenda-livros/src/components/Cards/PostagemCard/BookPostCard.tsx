@@ -32,9 +32,10 @@ export default function BookPostCard({ post }: BookPostCardProps) {
         boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.1)',
         flexDirection: { xs: 'column', sm: 'row' }, 
         gap: { xs: 1.5, sm: 2.5 },
+        alignItems: 'center',
       }}
     >
-      <Box sx={{ flexShrink: 0, width: { xs: '120px', sm: '150px' }, height: { xs: '180px', sm: '225px' }, mx: { xs: 'auto', sm: 0 } }}>
+      <Box sx={{ display:'flex', flexDirection:'column', alignItems:'center', flexShrink: 0, width: { xs: '120px', sm: '150px' }, height: { xs: '180px', sm: '225px' }, mx: { xs: 'auto', sm: 0 } }}>
         <Image
           src={post.coverSrc}
           alt={post.title}
