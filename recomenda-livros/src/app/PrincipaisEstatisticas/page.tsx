@@ -2,34 +2,52 @@
 import { FaBars, FaUserCircle, FaChartBar, FaBookOpen, FaClock, FaShareAlt } from 'react-icons/fa';
 import './EstatisticasDashboard.css';
 import Header from '@/src/components/Layout/Header/Header';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import Sidebar from '@/src/components/Navigation/Slidebar';
 import Footer from '@/src/components/Layout/Footer/footer';
 
 export default function EstatisticasDashboard() {
-  const totalBooksRead = 25;
-  const readingStreak = 13;
-  const topGenres = ['Romance', 'Fantasia', 'Suspense'];
-  const pagesPerMonth = '30k';
-  const avgReadingTime = '3h/d';
+  const [totalBooksRead, setTotalBooksRead] = useState(0);
+  const [readingStreak, setReadingStreak] = useState(0);
+  const [topGenres, setTopGenres] = useState<string[]>([]);
+  const [avgReadingTime, setAvgReadingTime] = useState('');
+  const [pagesPerMonth, setPagesPerMonth] = useState(0);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+
+  const API_URL = process.env.NEXT_PUBLIC_API;
+
+  useEffect(() => {
+    async function fetchStats() {
+      try {
+        const res = await fetch(API_URL + 'estatisticas/1');
+        const data = await res.json();
+        setTotalBooksRead(data.totalBooksRead);
+        setReadingStreak(data.readingStreak);
+        setTopGenres(data.topGenres);
+        setAvgReadingTime(data.avgReadingTime);
+        setPagesPerMonth(data.pagesPerMonth || 0);
+        setAvgReadingTime(data.avgReadingTime);
+      } catch (error) {
+        console.error("Falha ao buscar estatísticas:", error);
+      }
+    }
+    fetchStats();
+  }, [API_URL]);
 
   const handleMenuToggle = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
+
   return (
     <div className="dashboard-container">
       <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f5f7fa' }}>
         <Sidebar isVisible={isSidebarVisible} onLinkClick={handleMenuToggle} />
-
-
         <Box
           sx={{
             flexGrow: 1,
             display: 'flex',
             flexDirection: 'column',
-
             marginLeft: isSidebarVisible ? '' : '0px',
             transition: 'margin-left 0.3s ease-in-out',
             width: isSidebarVisible ? 'calc(100% - 250px)' : '100%',
@@ -73,10 +91,7 @@ export default function EstatisticasDashboard() {
 
           <Footer />
         </Box>
-
       </Box>
     </div>
   );
 };
-
-

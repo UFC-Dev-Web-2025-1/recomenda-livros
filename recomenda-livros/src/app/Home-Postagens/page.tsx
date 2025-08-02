@@ -64,7 +64,7 @@ export default function HomePostagensPage() {
         }}
       >
         <Header title="Home" avatar="A" config={true} onMenuClick={handleMenuToggle} />
-        <main>
+        <main className='main-content'>
           {posts.map(post => (
             <BookPostCard key={post.id} post={post} />
           ))}
