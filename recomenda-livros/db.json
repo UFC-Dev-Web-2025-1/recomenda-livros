@@ -328,29 +328,6 @@
       "avgReadingTime": "3h/d"
     }
   ],
-  "estatisticas": [
-    {
-      "id": "1",
-      "totalBooksRead": 25,
-      "readingStreak": 13,
-      "topGenres": [
-        "Romance",
-        "Fantasia",
-        "Suspense"
-      ],
-      "pagesPerMonth": [
-        {
-          "month": "Jan",
-          "pages": 800
-        },
-        {
-          "month": "Fev",
-          "pages": 600
-        }
-      ],
-      "avgReadingTime": "3h/d"
-    }
-  ],
   "minha_estante": [
     {
       "id": "1",
