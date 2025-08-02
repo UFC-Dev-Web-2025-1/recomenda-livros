@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { FaBars, FaUserCircle } from 'react-icons/fa';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import Slider from '@mui/material/Slider';
 import './PaginasPorMes.css';
