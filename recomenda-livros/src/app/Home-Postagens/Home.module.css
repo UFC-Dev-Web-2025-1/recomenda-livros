@@ -16,7 +16,6 @@
 
 .mainContent {
   flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
-  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px; /* Espaçamento entre os cards */
