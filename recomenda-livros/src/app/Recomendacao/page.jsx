@@ -34,9 +34,16 @@ export default function RecomendacaoInteligentePage() {
   useEffect(() => {
     const fetchRecomendacoes = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API}recomendacoes?_expand=livro`)
-        const data = await res.json()
-        const livrosMapeados = data.map((item) => item.livro)
+        const resRecs = await fetch(`${process.env.NEXT_PUBLIC_API}recomendacoes`)
+        const recomendacoes = await resRecs.json()
+
+        const resLivros = await fetch(`${process.env.NEXT_PUBLIC_API}livros`)
+        const livrosData = await resLivros.json()
+
+        const livrosMapeados = recomendacoes
+          .map((rec) => livrosData.find((livro) => String(livro.id) === String(rec.livroId)))
+          .filter(Boolean)
+
         setLivros(livrosMapeados)
       } catch (error) {
         console.error('Erro ao buscar recomendações:', error)
@@ -51,8 +58,8 @@ export default function RecomendacaoInteligentePage() {
     return matchGenero && matchAutor
   })
 
-  const autores = [...new Set(livros.map((l) => l.author))]
-  const generos = [...new Set(livros.map((l) => l.genre))]
+  const autores = [...new Set(livros.filter(l => l?.author).map((l) => l.author))]
+  const generos = [...new Set(livros.filter(l => l?.genre).map((l) => l.genre))]
 
   const indiceInicial = (paginaAtual - 1) * livrosPorPagina
   const livrosPaginados = filtrados.slice(indiceInicial, indiceInicial + livrosPorPagina)
@@ -76,7 +83,6 @@ export default function RecomendacaoInteligentePage() {
   return (
     <Box className="recomendacao-container">
       <Sidebar isVisible={sidebarOpen} onLinkClick={() => setSidebarOpen(false)} />
-
       <Box className="conteudo-principal">
         <Header
           title="Recomendações"
@@ -84,12 +90,10 @@ export default function RecomendacaoInteligentePage() {
           config={false}
           onMenuClick={() => setSidebarOpen(!sidebarOpen)}
         />
-
         <Box className="area-principal">
           <Typography variant="h4" gutterBottom>
             Com base em seu gosto, você pode gostar de...
           </Typography>
-
           <Box className="filtros">
             <Select
               size="small"
@@ -103,7 +107,6 @@ export default function RecomendacaoInteligentePage() {
                 <MenuItem key={g} value={g}>{g}</MenuItem>
               ))}
             </Select>
-
             <Select
               size="small"
               value={filtroAutor}
@@ -117,7 +120,6 @@ export default function RecomendacaoInteligentePage() {
               ))}
             </Select>
           </Box>
-
           <Grid container spacing={3} justifyContent="center">
             {livrosPaginados.map((livro) => (
               <Grid item key={livro.id}>
@@ -170,7 +172,6 @@ export default function RecomendacaoInteligentePage() {
               </Grid>
             ))}
           </Grid>
-
           <Box className="paginacao">
             <Pagination
               count={totalPaginas}

@@ -418,7 +418,58 @@
     "id": 1,
     "usuarioId": 1,
     "livroId": 3
+  }, 
+  {
+    "id": 2,
+    "usuarioId": 1,
+    "livroId": 1
+  },
+  {
+    "id": 3,
+    "usuarioId": 1,
+    "livroId": 2
+  },
+  {
+    "id": 4,
+    "usuarioId": 1,
+    "livroId": 4
+  },
+  {
+    "id": 5,
+    "usuarioId": 1,
+    "livroId": 5
+  },
+  {
+    "id": 6,
+    "usuarioId": 1,
+    "livroId": 6
+  },
+  {
+    "id": 7,
+    "usuarioId": 1,
+    "livroId": 7
+  },
+  {
+    "id": 8,
+    "usuarioId": 1,
+    "livroId": 8
+  },
+  {
+    "id": 9,
+    "usuarioId": 1,
+    "livroId": 9
+  },
+  {
+    "id": 10,
+    "usuarioId": 1,
+    "livroId": 10
+  },
+  {
+    "id": 11,
+    "usuarioId": 1,
+    "livroId": 2
   }
+   
 ]
 ,
   "perfil": [
