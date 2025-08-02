@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Box,
   Button,
@@ -19,6 +19,7 @@ import {
 import Header from '../../components/Layout/Header/Header'
 import Sidebar from '../../components/Navigation/Slidebar'
 import StarIcon from '@mui/icons-material/Star'
+import { useRouter } from 'next/navigation'
 import './layout.css'
 
 export default function RecomendacaoInteligentePage() {
@@ -26,47 +27,51 @@ export default function RecomendacaoInteligentePage() {
   const [filtroGenero, setFiltroGenero] = useState('')
   const [filtroAutor, setFiltroAutor] = useState('')
   const [paginaAtual, setPaginaAtual] = useState(1)
+  const [livros, setLivros] = useState([])
   const livrosPorPagina = 3
+  const router = useRouter()
 
-  const livrosRecomendados = [
-    {
-      id: 1,
-      titulo: 'A Revolução dos Bichos',
-      autor: 'George Orwell',
-      genero: 'Ficção',
-      popularidade: 5,
-      sinopse: 'Uma fábula política que critica regimes autoritários.',
-      imagem: '/1984.png'
-    },
-    {
-      id: 2,
-      titulo: 'O Senhor dos Anéis',
-      autor: 'J.R.R. Tolkien',
-      genero: 'Fantasia',
-      popularidade: 5,
-      sinopse: 'Uma jornada épica em um mundo mágico cheio de perigos e heróis.',
-      imagem: '/Hoobbit.png'
-    },
-    {
-      id: 3,
-      titulo: 'Steve Jobs',
-      autor: 'Walter Isaacson',
-      genero: 'Biografia',
-      popularidade: 4,
-      sinopse: 'A história de vida do cofundador da Apple, baseada em entrevistas reais.',
-      imagem: '/Clarice.png'
+  useEffect(() => {
+    const fetchRecomendacoes = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API}recomendacoes?_expand=livro`)
+        const data = await res.json()
+        const livrosMapeados = data.map((item) => item.livro)
+        setLivros(livrosMapeados)
+      } catch (error) {
+        console.error('Erro ao buscar recomendações:', error)
+      }
     }
-  ]
+    fetchRecomendacoes()
+  }, [])
 
-  const filtrados = livrosRecomendados.filter((livro) => {
-    const matchGenero = filtroGenero ? livro.genero === filtroGenero : true
-    const matchAutor = filtroAutor ? livro.autor === filtroAutor : true
+  const filtrados = livros.filter((livro) => {
+    const matchGenero = filtroGenero ? livro.genre === filtroGenero : true
+    const matchAutor = filtroAutor ? livro.author === filtroAutor : true
     return matchGenero && matchAutor
   })
+
+  const autores = [...new Set(livros.map((l) => l.author))]
+  const generos = [...new Set(livros.map((l) => l.genre))]
 
   const indiceInicial = (paginaAtual - 1) * livrosPorPagina
   const livrosPaginados = filtrados.slice(indiceInicial, indiceInicial + livrosPorPagina)
   const totalPaginas = Math.ceil(filtrados.length / livrosPorPagina)
+
+  const adicionarEstante = async (livroId) => {
+    try {
+      await fetch(`${process.env.NEXT_PUBLIC_API}minha-estante`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ livroId })
+      })
+      alert('Livro adicionado à estante!')
+    } catch (error) {
+      alert('Erro ao adicionar livro')
+    }
+  }
 
   return (
     <Box className="recomendacao-container">
@@ -94,9 +99,9 @@ export default function RecomendacaoInteligentePage() {
               className="filtro-select"
             >
               <MenuItem value="">Filtrar por Gênero</MenuItem>
-              <MenuItem value="Ficção">Ficção</MenuItem>
-              <MenuItem value="Fantasia">Fantasia</MenuItem>
-              <MenuItem value="Biografia">Biografia</MenuItem>
+              {generos.map((g) => (
+                <MenuItem key={g} value={g}>{g}</MenuItem>
+              ))}
             </Select>
 
             <Select
@@ -107,9 +112,9 @@ export default function RecomendacaoInteligentePage() {
               className="filtro-select"
             >
               <MenuItem value="">Filtrar por Autor</MenuItem>
-              <MenuItem value="George Orwell">George Orwell</MenuItem>
-              <MenuItem value="J.R.R. Tolkien">J.R.R. Tolkien</MenuItem>
-              <MenuItem value="Walter Isaacson">Walter Isaacson</MenuItem>
+              {autores.map((a) => (
+                <MenuItem key={a} value={a}>{a}</MenuItem>
+              ))}
             </Select>
           </Box>
 
@@ -120,20 +125,20 @@ export default function RecomendacaoInteligentePage() {
                   <CardMedia
                     component="img"
                     height="250"
-                    image={livro.imagem}
-                    alt={`Capa do livro ${livro.titulo}`}
+                    image={livro.coverSrc}
+                    alt={`Capa do livro ${livro.title}`}
                     className="card-imagem"
                   />
                   <CardContent className="card-conteudo">
                     <Box>
                       <Typography variant="h6" gutterBottom>
-                        {livro.titulo}
+                        {livro.title}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Autor: {livro.autor}
+                        Autor: {livro.author}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Gênero: {livro.genero}
+                        Gênero: {livro.genre}
                       </Typography>
                       <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
                         <Typography variant="body2">Popularidade:&nbsp;</Typography>
@@ -153,10 +158,10 @@ export default function RecomendacaoInteligentePage() {
                       </Typography>
                     </Box>
                     <Stack direction="row" spacing={1} sx={{ mt: 'auto', pt: 2, justifyContent: 'center' }}>
-                      <Button variant="contained" size="small" color="primary">
+                      <Button variant="contained" size="small" color="primary" onClick={() => adicionarEstante(livro.id)}>
                         Adicionar à Estante
                       </Button>
-                      <Button variant="outlined" size="small" color="primary">
+                      <Button variant="outlined" size="small" color="primary" onClick={() => router.push(`/DetalhesLivros?id=${livro.id}`)}>
                         Mais Detalhes
                       </Button>
                     </Stack>

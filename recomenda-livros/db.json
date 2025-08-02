@@ -413,6 +413,14 @@
       "completionPercentage": 80
     }
   ],
+  "recomendacoes": [
+  {
+    "id": 1,
+    "usuarioId": 1,
+    "livroId": 3
+  }
+]
+,
   "perfil": [
     {
       "nome": "Bom Leitor",
