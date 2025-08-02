@@ -1,5 +1,5 @@
 'use client';
-import { FaBars, FaUserCircle, FaChartBar, FaBookOpen, FaClock, FaShareAlt } from 'react-icons/fa';
+import { FaChartBar, FaBookOpen, FaClock, FaShareAlt } from 'react-icons/fa';
 import './EstatisticasDashboard.css';
 import Header from '@/src/components/Layout/Header/Header';
 import { useState, useEffect } from 'react';
@@ -7,12 +7,16 @@ import { Box } from '@mui/material';
 import Sidebar from '@/src/components/Navigation/Slidebar';
 import Footer from '@/src/components/Layout/Footer/footer';
 
+interface Estatisticas {
+  totalBooksRead: number;
+  readingStreak: number;
+  topGenres: string[];
+  pagesPerMonth: { month: string; pages: number }[];
+  avgReadingTime: string;
+}
+
 export default function EstatisticasDashboard() {
-  const [totalBooksRead, setTotalBooksRead] = useState(0);
-  const [readingStreak, setReadingStreak] = useState(0);
-  const [topGenres, setTopGenres] = useState<string[]>([]);
-  const [avgReadingTime, setAvgReadingTime] = useState('');
-  const [pagesPerMonth, setPagesPerMonth] = useState(0);
+  const [stats, setStats] = useState<Estatisticas | null>(null);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
   const API_URL = process.env.NEXT_PUBLIC_API;
@@ -22,12 +26,7 @@ export default function EstatisticasDashboard() {
       try {
         const res = await fetch(API_URL + 'estatisticas/1');
         const data = await res.json();
-        setTotalBooksRead(data.totalBooksRead);
-        setReadingStreak(data.readingStreak);
-        setTopGenres(data.topGenres);
-        setAvgReadingTime(data.avgReadingTime);
-        setPagesPerMonth(data.pagesPerMonth || 0);
-        setAvgReadingTime(data.avgReadingTime);
+        setStats(data);
       } catch (error) {
         console.error("Falha ao buscar estatísticas:", error);
       }
@@ -38,6 +37,9 @@ export default function EstatisticasDashboard() {
   const handleMenuToggle = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
+  
+  // Calcula o total de páginas lidas somando as páginas de cada mês
+  const totalPagesRead = stats?.pagesPerMonth.reduce((sum, current) => sum + current.pages, 0) || 0;
 
   return (
     <div className="dashboard-container">
@@ -53,16 +55,16 @@ export default function EstatisticasDashboard() {
             width: isSidebarVisible ? 'calc(100% - 250px)' : '100%',
           }}
         >
-          <Header title="Principais Estatisticas" avatar="A" config={true} onMenuClick={handleMenuToggle} />
+          <Header title="Principais Estatísticas" avatar="A" config={true} onMenuClick={handleMenuToggle} />
 
           <div className="summary-row">
             <div className="summary-card">
               <p className="summary-label">Total de livros lidos:</p>
-              <p className="summary-value">{totalBooksRead}</p>
+              <p className="summary-value">{stats?.totalBooksRead ?? 0}</p>
             </div>
             <div className="summary-card">
               <p className="summary-label">Sequência de Leitura:</p>
-              <p className="summary-value">{readingStreak} dias</p>
+              <p className="summary-value">{stats?.readingStreak ?? 0} dias</p>
             </div>
           </div>
 
@@ -70,21 +72,21 @@ export default function EstatisticasDashboard() {
             <div className="stat-card">
               <FaChartBar className="stat-icon" />
               <h2>Gêneros mais consumidos</h2>
-              <p className="stat-text">{topGenres.join(', ')}...</p>
+              <p className="stat-text">{stats?.topGenres.join(', ') ?? 'Nenhum gênero ainda'}...</p>
               <FaShareAlt className="share-icon" />
             </div>
 
             <div className="stat-card">
               <FaBookOpen className="stat-icon" />
               <h2>Páginas lidas por mês</h2>
-              <p className="stat-text">{pagesPerMonth}</p>
+              <p className="stat-text">{totalPagesRead} pág.</p>
               <FaShareAlt className="share-icon" />
             </div>
 
             <div className="stat-card">
               <FaClock className="stat-icon" />
               <h2>Tempo médio de leitura</h2>
-              <p className="stat-text">{avgReadingTime}</p>
+              <p className="stat-text">{stats?.avgReadingTime ?? '0h/d'}</p>
               <FaShareAlt className="share-icon" />
             </div>
           </main>

@@ -6,7 +6,7 @@ import Sidebar from '../../components/Navigation/Slidebar'
 import { useState, useEffect } from 'react'
 import './layout.css'
 
-
+const API_URL = process.env.NEXT_PUBLIC_API
 
 export default function PerfilPage() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
@@ -21,19 +21,12 @@ export default function PerfilPage() {
   useEffect(() => {
     async function fetchPerfil() {
       try {
-        const res = await fetch(process.env.NEXT_PUBLIC_API+"perfil")
-      
-
+        const res = await fetch(`${API_URL}/perfil`)
         if (!res.ok) throw new Error(`Erro ${res.status}`)
         const data = await res.json()
-        console.log('Perfil carregado:', data)
-        setPerfil(data[0])
+        setPerfil(data)
       } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message)
-        } else {
-          setError('Erro desconhecido')
-        }
+        setError(err instanceof Error ? err.message : 'Erro desconhecido')
       } finally {
         setLoading(false)
       }
@@ -41,7 +34,29 @@ export default function PerfilPage() {
     fetchPerfil()
   }, [])
 
+  if (loading) {
+    return (
+      <Box className="perfil-container">
+        <Typography>Carregando perfil…</Typography>
+      </Box>
+    )
+  }
 
+  if (error) {
+    return (
+      <Box className="perfil-container">
+        <Typography color="error">Falha ao carregar perfil: {error}</Typography>
+      </Box>
+    )
+  }
+
+  if (!perfil) {
+    return (
+      <Box className="perfil-container">
+        <Typography>Perfil não encontrado.</Typography>
+      </Box>
+    )
+  }
 
   return (
     <Box className="perfil-container">
@@ -49,7 +64,7 @@ export default function PerfilPage() {
       <Box className="perfil-content">
         <Header
           title="Perfil"
-          avatar={perfil ? perfil.nome :''}
+          avatar={perfil.nome.charAt(0)}
           config={false}
           onMenuClick={() => setSidebarOpen(!sidebarOpen)}
         />
@@ -61,22 +76,22 @@ export default function PerfilPage() {
                 Perfil
               </Typography>
 
-              <Avatar className="perfil-avatar">{perfil ? perfil.nome: ''}</Avatar>
+              <Avatar className="perfil-avatar">{perfil.nome.charAt(0)}</Avatar>
               <Typography variant="body2" color="textSecondary" className="perfil-avatar-label">
                 Avatar
               </Typography>
 
               <Typography className="perfil-info">
-                <strong>Nome:</strong> {perfil ? perfil.nome : ''}
+                <strong>Nome:</strong> {perfil.nome}
               </Typography>
 
               <Typography className="perfil-info">
-                <strong>Email:</strong> {perfil ? perfil.email: ''}
+                <strong>Email:</strong> {perfil.email}
               </Typography>
 
               <Typography className="perfil-info">
                 <strong>Data de Nascimento:</strong>{' '}
-                {perfil ? perfil.nascimento : ''}
+                {new Date(perfil.nascimento).toLocaleDateString('pt-BR')}
               </Typography>
 
               <Button

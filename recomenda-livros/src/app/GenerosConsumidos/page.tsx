@@ -15,20 +15,46 @@ import { Box } from '@mui/material';
 import Sidebar from '@/src/components/Navigation/Slidebar';
 import Header from '@/src/components/Layout/Header/Header';
 import Footer from '@/src/components/Layout/Footer/footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const dataDonut = [
-  { name: 'Ficção', value: 40, color: '#FFD27F' },
-  { name: 'Romance', value: 10, color: '#8FCC5C' },
-  { name: 'Fantasia', value: 18, color: '#A7E0F2' },
-  { name: 'Suspense', value: 18, color: '#FF847F' },
-  { name: 'Biografia', value: 14, color: '#B086D6' },
-];
+interface Book {
+  id: string;
+  genre: string;
+}
 
-const dataBar = dataDonut;
+const COLORS = ['#FFD27F', '#8FCC5C', '#A7E0F2', '#FF847F', '#B086D6'];
+const API_URL = process.env.NEXT_PUBLIC_API;
 
 export default function TopGeneros() {
+  type ChartData = { name: string; value: number; color: string };
+  const [dataDonut, setDataDonut] = useState<ChartData[]>([]);
+  const [dataBar, setDataBar] = useState<ChartData[]>([]);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+
+  useEffect(() => {
+    async function fetchGenres() {
+      try {
+        const res = await fetch(API_URL + 'livros');
+        const books: Book[] = await res.json();
+        const genreCounts = books.reduce((acc, book) => {
+          acc[book.genre] = (acc[book.genre] || 0) + 1;
+          return acc;
+        }, {} as { [key: string]: number });
+
+        const formattedData = Object.keys(genreCounts).map((genre, index) => ({
+          name: genre,
+          value: genreCounts[genre],
+          color: COLORS[index % COLORS.length],
+        }));
+
+        setDataDonut(formattedData);
+        setDataBar(formattedData);
+      } catch (error) {
+        console.error("Falha ao buscar gêneros:", error);
+      }
+    }
+    fetchGenres();
+  }, [API_URL]);
 
   const handleMenuToggle = () => {
     setIsSidebarVisible(!isSidebarVisible);
@@ -43,7 +69,6 @@ export default function TopGeneros() {
             flexGrow: 1,
             display: 'flex',
             flexDirection: 'column',
-
             marginLeft: isSidebarVisible ? '' : '0px',
             transition: 'margin-left 0.3s ease-in-out',
             width: isSidebarVisible ? 'calc(100% - 250px)' : '100%',
@@ -88,7 +113,7 @@ export default function TopGeneros() {
               </ReResponsiveContainer>
             </div>
           </div>
-                <Footer />
+          <Footer />
         </Box>
       </Box>
     </div>
