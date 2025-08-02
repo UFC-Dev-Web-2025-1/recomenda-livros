@@ -1,111 +1,114 @@
-'use client'
+'use client';
+import { useState, useEffect } from 'react';
+import { FaBars, FaUserCircle } from 'react-icons/fa';
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { FaClock, FaBookOpen, FaRegCalendarAlt } from 'react-icons/fa';
+import './TempoLeitura.css';
+import Header from '@/src/components/Layout/Header/Header';
+import { Box } from '@mui/material';
+import Sidebar from '@/src/components/Navigation/Slidebar';
+import Footer from '@/src/components/Layout/Footer/footer';
 
-import { Avatar, Box, Button, Card, CardContent, Typography } from '@mui/material'
-import Header from '../../components/Layout/Header/Header'
-import Sidebar from '../../components/Navigation/Slidebar'
-import { useState, useEffect } from 'react'
-import './layout.css'
+const rangeOptions = ['Últimos seis meses', 'Últimos doze meses'];
+const monthlyData = [
+  { month: 'Jan', hours: 60 },
+  { month: 'Fev', hours: 80 },
+  { month: 'Mar', hours: 70 },
+  { month: 'Abr', hours: 95 },
+  { month: 'Mai', hours: 140 },
+  { month: 'Jun', hours: 100 },
+];
+const insights = {
+  fastest: { book: 'Duna', time: '3d' },
+  longestSession: '90min',
+};
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+const API_URL = process.env.NEXT_PUBLIC_API;
 
-export default function PerfilPage() {
-  const [sidebarOpen, setSidebarOpen] = useState(true)
-  const [perfil, setPerfil] = useState<{
-    nome: string,
-    email: string,
-    nascimento: string
-  } | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+export default function ReadingTime() {
+  const [range, setRange] = useState(rangeOptions[0]);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const [avgReadingTime, setAvgReadingTime] = useState('3h/d');
 
   useEffect(() => {
-    async function fetchPerfil() {
+    async function fetchAvgReadingTime() {
       try {
-        const res = await fetch(`${API_URL}/perfil`)
-        if (!res.ok) throw new Error(`Erro ${res.status}`)
-        const data = await res.json()
-        setPerfil(data)
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setLoading(false)
+        const res = await fetch(API_URL + 'estatisticas/1');
+        const data = await res.json();
+        setAvgReadingTime(data.avgReadingTime);
+      } catch (error) {
+        console.error("Falha ao buscar tempo médio de leitura:", error);
       }
     }
-    fetchPerfil()
-  }, [])
+    fetchAvgReadingTime();
+  }, [API_URL]);
 
-  if (loading) {
-    return (
-      <Box className="perfil-container">
-        <Typography>Carregando perfil…</Typography>
-      </Box>
-    )
-  }
-
-  if (error) {
-    return (
-      <Box className="perfil-container">
-        <Typography color="error">Falha ao carregar perfil: {error}</Typography>
-      </Box>
-    )
-  }
-
-  if (!perfil) {
-    return (
-      <Box className="perfil-container">
-        <Typography>Perfil não encontrado.</Typography>
-      </Box>
-    )
-  }
-
+  const handleMenuToggle = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
   return (
-    <Box className="perfil-container">
-      <Sidebar isVisible={sidebarOpen} onLinkClick={() => setSidebarOpen(false)} />
-      <Box className="perfil-content">
-        <Header
-          title="Perfil"
-          avatar={perfil.nome.charAt(0)}
-          config={false}
-          onMenuClick={() => setSidebarOpen(!sidebarOpen)}
-        />
+    <div className="avg-container">
+      <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f5f7fa' }}>
+        <Sidebar isVisible={isSidebarVisible} onLinkClick={handleMenuToggle} />
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: 'flex',
+            flexDirection: 'column',
 
-        <Box className="perfil-card-wrapper">
-          <Card className="perfil-card">
-            <CardContent className="perfil-card-content">
-              <Typography variant="h6" gutterBottom>
-                Perfil
-              </Typography>
+            marginLeft: isSidebarVisible ? '' : '0px',
+            transition: 'margin-left 0.3s ease-in-out',
+            width: isSidebarVisible ? 'calc(100% - 250px)' : '100%',
+          }}
+        >
+          <Header title="Tempo Medio de Leitura" avatar="A" config={true} onMenuClick={handleMenuToggle} />
 
-              <Avatar className="perfil-avatar">{perfil.nome.charAt(0)}</Avatar>
-              <Typography variant="body2" color="textSecondary" className="perfil-avatar-label">
-                Avatar
-              </Typography>
+          <div className="avg-controls">
+            <select value={range} onChange={e => setRange(e.target.value)}>
+              {rangeOptions.map(opt => (
+                <option key={opt} value={opt}>{opt}</option>
+              ))}
+            </select>
+          </div>
 
-              <Typography className="perfil-info">
-                <strong>Nome:</strong> {perfil.nome}
-              </Typography>
+          <div className="avg-chart">
+            <ResponsiveContainer width="50%" height={300}>
+              <AreaChart data={monthlyData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Area type="monotone" dataKey="hours" stroke="#F4B400" fill="#F4B40033" />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
 
-              <Typography className="perfil-info">
-                <strong>Email:</strong> {perfil.email}
-              </Typography>
-
-              <Typography className="perfil-info">
-                <strong>Data de Nascimento:</strong>{' '}
-                {new Date(perfil.nascimento).toLocaleDateString('pt-BR')}
-              </Typography>
-
-              <Button
-                variant="contained"
-                fullWidth
-                className="perfil-editar-button"
-                href="/ConfiguracoesPerfil"
-              >
-                Editar Informações
-              </Button>
-            </CardContent>
-          </Card>
+          <div className="avg-insights-cards">
+            <div className="insights-text">
+              <h3>Insights:</h3>
+              <p>Leitura mais rápida: {insights.fastest.book} | {insights.fastest.time}</p>
+              <p>Sessão mais longa: {insights.longestSession}</p>
+            </div>
+            <div className="cards-row">
+              <div className="stat-card">
+                <FaRegCalendarAlt className="card-icon" />
+                <p className="card-title">Tempo por sessão</p>
+                <p className="card-value">40min</p>
+              </div>
+              <div className="stat-card">
+                <FaBookOpen className="card-icon" />
+                <p className="card-title">Tempo por livro</p>
+                <p className="card-value">40min</p>
+              </div>
+              <div className="stat-card">
+                <FaClock className="card-icon" />
+                <p className="card-title">Tempo diário</p>
+                <p className="card-value">{avgReadingTime}</p>
+              </div>
+            </div>
+          </div>
+          <Footer />
         </Box>
       </Box>
-    </Box>
-  )
+    </div>
+  );
 }
