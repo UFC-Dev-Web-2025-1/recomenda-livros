@@ -8,13 +8,14 @@ import { on } from 'events';
 
 
 const StyledSidebar = styled(Box)(({ theme }) => ({
-  width: 250,
+  width: '25%',
   backgroundColor: '#154273',
   color: 'white',
   paddingTop: theme.spacing(4),
   display: 'flex',
   flexDirection: 'column',
-  height: '100vh',
+  height: '100rem',
+  position: 'fixed',
   flexShrink: 0,
 
 
