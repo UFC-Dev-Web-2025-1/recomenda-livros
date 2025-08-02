@@ -11,10 +11,8 @@ export const metadata: Metadata = {
 
 export default function EstatisticasLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
-      <body className={inter.className}>
-        {children}
-      </body>
-    </html>
+    <>
+      {children}
+    </>
   );
 }

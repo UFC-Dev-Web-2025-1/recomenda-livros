@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaBars, FaUserCircle } from 'react-icons/fa';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import Slider from '@mui/material/Slider';
@@ -10,32 +10,46 @@ import { Box } from '@mui/material';
 import Footer from '@/src/components/Layout/Footer/footer';
 
 const dataOptions = ['Últimos sete meses', 'Últimos doze meses'];
-const initialData = [
-  { month: 'Jan', pages: 800 },
-  { month: 'Fev', pages: 600 },
-  { month: 'Mar', pages: 700 },
-  { month: 'Abr', pages: 1400 },
-  { month: 'Mai', pages: 1200 },
-  { month: 'Jun', pages: 1600 },
-  { month: 'Jul', pages: 950 },
-];
+
+type ChartDataItem = {
+  month: string;
+  pages: number;
+};
 
 const PaginasPorMes = () => {
   const [range, setRange] = useState(dataOptions[0]);
   const [goal, setGoal] = useState(1200);
-  const [chartData] = useState(initialData);
+  const [chartData, setChartData] = useState<ChartDataItem[]>([]);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+
+  const API_URL = process.env.NEXT_PUBLIC_API;
+
+  useEffect(() => {
+    async function fetchStats() {
+      try {
+        const res = await fetch(API_URL + 'estatisticas/1');
+        const data = await res.json();
+        setChartData(data.pagesPerMonth);
+      } catch (error) {
+        console.error("Falha ao buscar dados do gráfico:", error);
+      }
+    }
+    fetchStats();
+  }, [API_URL]);
 
   const handleGoalChange = (_: Event, newValue: number | number[]) => {
     setGoal(newValue as number);
   };
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
   const handleMenuToggle = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
+
+  
+  const totalRead = chartData.reduce((sum, d) => sum + d.pages, 0);
+
   return (
     <div className="ppm-container">
-
       <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f5f7fa' }}>
         <Sidebar isVisible={isSidebarVisible} onLinkClick={handleMenuToggle} />
         <Box
@@ -43,7 +57,6 @@ const PaginasPorMes = () => {
             flexGrow: 1,
             display: 'flex',
             flexDirection: 'column',
-
             marginLeft: isSidebarVisible ? '' : '0px',
             transition: 'margin-left 0.3s ease-in-out',
             width: isSidebarVisible ? 'calc(100% - 250px)' : '100%',
@@ -83,7 +96,7 @@ const PaginasPorMes = () => {
           <div className="ppm-chart-insights">
             <div className="chart-card">
               <div className="chart-header">
-                <h2>{chartData.reduce((sum, d) => sum + d.pages, 0)}/{goal} pág</h2>
+                <h2>{totalRead}/{goal} pág</h2>
                 <p className="comp">+22% que mês anterior</p>
               </div>
 
@@ -97,12 +110,13 @@ const PaginasPorMes = () => {
               </ResponsiveContainer>
             </div>
 
-            <div className="insights-card">
-              <h3>Insights</h3>
-              <p>Mês destaque: Julho (1800 pág.)</p>
-              <p>Média mensal: 1250 pág.</p>
-              <p>Comparativo: +22% vs período anterior</p>
-            </div>
+            {
+            chartData.map((item, index) => (
+              <div key={index}>
+                <p>Mês: {item.month}</p>
+                <p>Páginas: {item.pages}</p>
+              </div>
+            ))}
           </div>
 
           <Footer />

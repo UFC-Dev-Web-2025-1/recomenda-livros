@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaBars, FaUserCircle } from 'react-icons/fa';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { FaClock, FaBookOpen, FaRegCalendarAlt } from 'react-icons/fa';
@@ -18,15 +18,30 @@ const monthlyData = [
   { month: 'Mai', hours: 140 },
   { month: 'Jun', hours: 100 },
 ];
-
 const insights = {
   fastest: { book: 'Duna', time: '3d' },
   longestSession: '90min',
 };
 
+const API_URL = process.env.NEXT_PUBLIC_API;
+
 export default function ReadingTime() {
   const [range, setRange] = useState(rangeOptions[0]);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const [avgReadingTime, setAvgReadingTime] = useState('3h/d');
+
+  useEffect(() => {
+    async function fetchAvgReadingTime() {
+      try {
+        const res = await fetch(API_URL + 'estatisticas/1');
+        const data = await res.json();
+        setAvgReadingTime(data.avgReadingTime);
+      } catch (error) {
+        console.error("Falha ao buscar tempo médio de leitura:", error);
+      }
+    }
+    fetchAvgReadingTime();
+  }, [API_URL]);
 
   const handleMenuToggle = () => {
     setIsSidebarVisible(!isSidebarVisible);
@@ -57,7 +72,7 @@ export default function ReadingTime() {
           </div>
 
           <div className="avg-chart">
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="50%" height={300}>
               <AreaChart data={monthlyData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
                 <XAxis dataKey="month" />
                 <YAxis />
@@ -87,12 +102,11 @@ export default function ReadingTime() {
               <div className="stat-card">
                 <FaClock className="card-icon" />
                 <p className="card-title">Tempo diário</p>
-                <p className="card-value">40min</p>
+                <p className="card-value">{avgReadingTime}</p>
               </div>
             </div>
           </div>
-
-              <Footer />
+          <Footer />
         </Box>
       </Box>
     </div>

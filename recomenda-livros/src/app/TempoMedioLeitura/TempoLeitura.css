@@ -44,12 +44,15 @@
 }
 
 .avg-chart {
-  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .avg-insights-cards {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   padding: 20px;
   gap: 40px;
 }
@@ -70,7 +73,7 @@
 .stat-card {
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 16px;
   text-align: center;
   width: 140px;
